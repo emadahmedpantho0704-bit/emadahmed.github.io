@@ -30,7 +30,7 @@
 ## Education
 
 - **M.Sc. in Civil Engineering (Structural Engineering)** — Chittagong University of Engineering and Technology (CUET), July 2025–Present  
-  21 of 36 credits completed, as stated in my CV.
+  21 of 36 credits completed.
 - **B.Sc. in Civil Engineering** — CUET, February 2020–June 2025  
   CGPA: **3.77/4.00**; ranked **2nd** in the department.
 - **Higher Secondary Certificate (HSC)** — Sreemangal Government College, 2017–2019  
