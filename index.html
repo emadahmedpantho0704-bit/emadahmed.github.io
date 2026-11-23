@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emad Ahmed | Lecturer, Dept. of Civil Engineering, CUET</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #0d1624;
+      --bg-nav: #0a111d;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-blue: #60a5fa;
+      --btn-blue: #7ab3ef;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      /* Subtle topographic/wave line pattern */
+      background-image: 
+        radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        repeating-radial-gradient(circle at 0% 100%, transparent 0, transparent 40px, rgba(255, 255, 255, 0.015) 41px, transparent 42px);
+    }
+
+    /* Top Navigation */
+    header {
+      background-color: var(--bg-nav);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .monogram {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+    }
+
+    nav a:hover, nav a.active {
+      color: #fff;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid var(--accent-blue);
+    }
+
+    /* Main Layout */
+    .container {
+      max-width: 1180px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 4.5rem;
+      align-items: start;
+    }
+
+    /* Left Profile Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .profile-pic {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .role-highlight {
+      color: var(--accent-blue);
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .affiliation {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .email-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Right Content Area */
+    .content-section {
+      padding-top: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-title i {
+      color: var(--accent-blue);
+      font-size: 1.2rem;
+    }
+
+    .bio-text p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      margin-bottom: 1.3rem;
+      text-align: justify;
+    }
+
+    .cta-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--btn-blue);
+      color: #0a111d;
+    }
+
+    .btn-primary:hover {
+      background-color: #93c5fd;
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Responsive Mobile Layout */
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin: 2rem auto;
+      }
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <a href="#" class="brand">
+      <div class="monogram">EA</div>
+      <span>Emad Ahmed</span>
+    </a>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching & Experience</a>
+      <a href="#publications">Publications</a>
+    </nav>
+  </header>
+
+  <!-- Main Two-Column Portfolio -->
+  <main class="container" id="home">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <img src="IMG_0111.jpg" alt="Emad Ahmed" class="profile-pic" />
+      <h1 class="name">Emad Ahmed</h1>
+      <div class="subtitle">Civil Engineering Academic & Researcher</div>
+      
+      <div class="role-highlight">
+        Structural Engineering &amp; Sustainable Concrete Researcher
+      </div>
+      
+      <div class="affiliation">
+        Lecturer, Department of Civil Engineering<br>
+        Chittagong University of Engineering &amp; Technology (CUET)<br>
+        Chattogram, Bangladesh
+      </div>
+
+      <!-- Academic Links (Update href="#" with your actual URLs) -->
+      <div class="social-icons">
+        <a href="mailto:your.email@cuet.ac.bd" title="Email"><i class="fa-regular fa-envelope"></i></a>
+        <a href="#" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
+        <a href="#" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
+      </div>
+
+      <div class="email-text">your.email@cuet.ac.bd</div>
+    </aside>
+
+    <!-- Right Content -->
+    <section class="content-section">
+      <h2 class="section-title">
+        <i class="fa-regular fa-user"></i>
+        Profile Summary
+      </h2>
+
+      <div class="bio-text">
+        <p>
+          I am a Lecturer in the Department of Civil Engineering at Chittagong University of Engineering and Technology (CUET), Bangladesh. I am a civil engineering academic with a background in structural engineering and sustainable concrete, where my work bridges fundamental structural mechanics with practical engineering education.
+        </p>
+        <p>
+          My current research combines teaching, structural analysis, and experimental material studies, with a growing focus on machine learning applications in civil engineering and data-driven structural assessment of existing buildings.
+        </p>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="CV_Emad_Ahmed.pdf" class="btn btn-primary">View CV (PDF)</a>
+        <a href="mailto:your.email@cuet.ac.bd" class="btn btn-secondary">Email</a>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
