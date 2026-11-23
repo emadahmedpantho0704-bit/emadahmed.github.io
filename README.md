@@ -113,4 +113,4 @@
 
 ---
 
-*This profile is based on the information in my CV. Research and publication statuses are stated as listed there.*
+
