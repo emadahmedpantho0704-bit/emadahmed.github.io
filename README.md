@@ -1,13 +1,26 @@
 
 # Emad Ahmed
-<div align="center">
-  <img src="IMG_0111.jpg" width="180" alt="Emad Ahmed">
-</div>
 
-**Lecturer, Department of Civil Engineering**  
-**Chittagong University of Engineering and Technology (CUET), Bangladesh**
+<h1>Emad Ahmed</h1>
 
+<table>
+<tr>
+<td width="30%" align="center" valign="middle">
+<img src="images/IMG_0111.jpg" width="200" alt="Emad Ahmed">
+</td>
+<td width="70%" valign="middle">
+
+<h3>Lecturer, Department of Civil Engineering</h3>
+
+<strong>Chittagong University of Engineering and Technology (CUET), Bangladesh</strong>
+
+<p>
 I am a civil engineering academic with a background in structural engineering and sustainable concrete. My work combines teaching, structural analysis, and research, with a growing focus on machine learning applications in civil engineering and data-driven assessment of existing buildings.
+</p>
+
+</td>
+</tr>
+</table>
 
 ## Research Interests
 
