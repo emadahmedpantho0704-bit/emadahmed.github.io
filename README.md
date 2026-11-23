@@ -1,5 +1,8 @@
 
 # Emad Ahmed
+<div align="center">
+  <img src="IMG_0111.jpg" width="180" alt="Emad Ahmed">
+</div>
 
 **Lecturer, Department of Civil Engineering**  
 **Chittagong University of Engineering and Technology (CUET), Bangladesh**
