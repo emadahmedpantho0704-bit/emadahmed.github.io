@@ -404,27 +404,6 @@
       font-weight: 600;
     }
 
-    .pub-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 1.1rem 1.35rem;
-      margin-bottom: 1rem;
-      color: #cbd5e1;
-      font-size: 0.94rem;
-    }
-
-    .pub-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent-blue);
-      background: rgba(96, 165, 250, 0.12);
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      margin-bottom: 0.45rem;
-    }
-
     .pub-link {
       color: var(--accent-blue);
       text-decoration: none;
@@ -433,6 +412,88 @@
 
     .pub-link:hover {
       text-decoration: underline;
+    }
+
+    /* Two-Column Research & Publication Cards (Left Text + Right Video) */
+    .video-pub-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.35rem;
+      margin-bottom: 1.35rem;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .video-pub-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 0.45rem;
+      line-height: 1.35;
+    }
+
+    .video-pub-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .video-pub-meta strong {
+      color: #fff;
+    }
+
+    .video-pub-summary {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      margin-bottom: 0.6rem;
+      line-height: 1.65;
+    }
+
+    .video-pub-bullets {
+      color: #cbd5e1;
+      font-size: 0.89rem;
+      padding-left: 1.1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .video-pub-bullets li {
+      margin-bottom: 0.25rem;
+    }
+
+    .video-pub-keywords {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .video-pub-keywords strong {
+      color: #fff;
+    }
+
+    .video-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .video-media {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      background: #070c14;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-caption {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.45;
     }
 
     /* Gallery Grid */
@@ -486,7 +547,8 @@
         margin: 2rem auto;
       }
 
-      .interests-grid {
+      .interests-grid,
+      .video-pub-card {
         grid-template-columns: 1fr;
       }
     }
@@ -515,7 +577,6 @@
             <a href="#undergraduate-thesis" data-tab="research-publication" data-target="undergraduate-thesis">Undergraduate Thesis (B.Sc.)</a>
             <a href="#conference-papers" data-tab="research-publication" data-target="conference-papers">Conference Papers</a>
             <a href="#poster-presentations" data-tab="research-publication" data-target="poster-presentations">Poster Presentations</a>
-            <a href="#academic-projects" data-tab="research-publication" data-target="academic-projects">Selected Academic Projects</a>
           </div>
         </div>
       </div>
@@ -682,103 +743,175 @@
         </div>
       </div>
 
-      <!-- 3. RESEARCH & PUBLICATION -->
+      <!-- 3. RESEARCH & PUBLICATION (TWO-COLUMN: LEFT TEXT + RIGHT VIDEO) -->
       <div id="tab-research-publication" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-flask"></i>
           Research &amp; Publication
         </h2>
 
+        <!-- Master's Thesis -->
         <h3 id="masters-thesis" class="subsection-title" style="margin-top: 0;">Master's Thesis</h3>
 
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">M.Sc. Research</div>
-            <div class="entry-date">2025 – Present</div>
+        <div class="video-pub-card">
+          <div>
+            <div class="video-pub-title">Machine Learning-Based Seismic Vulnerability Assessment of Existing Buildings in Dhaka: Bridging Visual Screening with the Damaged State of the Building</div>
+            <div class="video-pub-meta">
+              <strong>Stage:</strong> M.Sc. Research | <strong>Duration:</strong> 2025 – Present
+            </div>
+            <div class="video-pub-summary">
+              Developing data-driven models to connect rapid visual screening indicators with actual structural damage states for existing buildings in Dhaka.
+            </div>
+            <div class="video-pub-keywords">
+              <strong>Key areas:</strong> Seismic vulnerability, machine learning, rapid visual screening, building damage assessment
+            </div>
           </div>
-          <div class="entry-org">"Machine Learning-Based Seismic Vulnerability Assessment of Existing Buildings in Dhaka: Bridging Visual Screening with the Damaged State of the Building"</div>
+
+          <div class="video-box">
+            <video controls preload="metadata" class="video-media">
+              <source src="msc_seismic_explainer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              Explanatory walkthrough of the M.Sc. seismic vulnerability framework for existing buildings in Dhaka.
+            </div>
+          </div>
         </div>
 
+        <!-- Undergraduate Thesis (B.Sc.) -->
         <h3 id="undergraduate-thesis" class="subsection-title">Undergraduate Thesis (B.Sc.)</h3>
 
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">B.Sc. Thesis</div>
-            <div class="entry-date">Nov 2024 – Jun 2025</div>
+        <div class="video-pub-card">
+          <div>
+            <div class="video-pub-title">Performance Evaluation of Concrete Using Zeolite as Partial Replacement for Cement under CO<sub>2</sub> Curing</div>
+            <div class="video-pub-meta">
+              <strong>Stage:</strong> B.Sc. Thesis | <strong>Duration:</strong> Nov 2024 – Jun 2025
+            </div>
+            <ul class="video-pub-bullets">
+              <li>Studied concrete with 0–20% natural zeolite replacement under accelerated CO<sub>2</sub> curing.</li>
+              <li>Evaluated compressive &amp; tensile strength, UPV, water absorption, RCPT, and carbonation depth.</li>
+              <li>Identified 10% zeolite replacement as optimal (+9% strength, 45% reduction in chloride permeability).</li>
+            </ul>
+            <div class="video-pub-keywords">
+              <strong>Key areas:</strong> Natural zeolite, CO<sub>2</sub> curing, chloride permeability, sustainable concrete
+            </div>
           </div>
-          <div class="entry-org">"Performance Evaluation of Concrete Using Zeolite as Partial Replacement for Cement under CO<sub>2</sub> Curing"</div>
-          <ul class="entry-details">
-            <li>Studied concrete with 0–20% natural zeolite replacement under accelerated CO<sub>2</sub> curing.</li>
-            <li>Evaluated compressive &amp; tensile strength, UPV, water absorption, RCPT, and carbonation depth.</li>
-            <li>Identified 10% zeolite replacement as optimal (+9% strength, 45% reduction in chloride permeability).</li>
-          </ul>
+
+          <div class="video-box">
+            <video controls preload="metadata" class="video-media">
+              <source src="zeolite_co2_curing_explainer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              Summary of zeolite replacement ratios, CO<sub>2</sub> curing, and strength/permeability outcomes.
+            </div>
+          </div>
         </div>
 
+        <!-- Conference Papers -->
         <h3 id="conference-papers" class="subsection-title">Conference Papers</h3>
 
-        <div class="pub-item">
-          <span class="pub-badge">2026 IEEE QPAIN</span><br>
-          S. T. Akter, S. S. I. Lamun, <strong>E. Ahmed</strong>, S. Sarkar, and C. Roy, "Machine Learning Based CO<sub>2</sub> Emission Prediction at an Urban Intersection under Heterogeneous Traffic Using SUMO Microsimulation," in <em>Proceedings of the 2026 IEEE 2nd International Conference on QPAIN</em>, Chattogram, Bangladesh. DOI: <a href="https://doi.org/10.1109/QPAIN69676.2026.11546352" target="_blank" rel="noopener noreferrer" class="pub-link">10.1109/QPAIN69676.2026.11546352</a>
+        <div class="video-pub-card">
+          <div>
+            <div class="video-pub-title">Machine Learning Based CO<sub>2</sub> Emission Prediction at an Urban Intersection under Heterogeneous Traffic Using SUMO Microsimulation</div>
+            <div class="video-pub-meta">
+              <strong>Venue:</strong> 2026 IEEE QPAIN | <strong>DOI:</strong> <a href="https://doi.org/10.1109/QPAIN69676.2026.11546352" target="_blank" rel="noopener noreferrer" class="pub-link">10.1109/QPAIN69676.2026.11546352</a>
+            </div>
+            <div class="video-pub-summary">
+              S. T. Akter, S. S. I. Lamun, <strong>E. Ahmed</strong>, S. Sarkar, and C. Roy. Extracted drone trajectories at Tigerpass intersection in Chattogram, simulated peak traffic in SUMO, and trained ML models—with SVR reaching R<sup>2</sup> up to 0.9987.
+            </div>
+            <div class="video-pub-keywords">
+              <strong>Key areas:</strong> CO<sub>2</sub> emission prediction, SUMO microsimulation, SVR, drone traffic monitoring
+            </div>
+          </div>
+
+          <div class="video-box">
+            <video controls preload="metadata" class="video-media">
+              <source src="TigerpassCO2Explainer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              Why we studied Tigerpass, drone data collection, SUMO + ML pipeline, and key results.
+            </div>
+          </div>
         </div>
 
-        <div class="pub-item">
-          <span class="pub-badge">Under Review – ICACE 2026</span><br>
-          <strong>E. Ahmed</strong>, R. Raheem, and Md. A. Rahman, "Multi-Objective Performance Modeling of Recycled Aggregate Concrete: A Single-Trial Predictive Approach" (under review for ICACE 2026, CUET).
+        <div class="video-pub-card">
+          <div>
+            <div class="video-pub-title">Multi-Objective Performance Modeling of Recycled Aggregate Concrete: A Single-Trial Predictive Approach</div>
+            <div class="video-pub-meta">
+              <strong>Status:</strong> Under Review – ICACE 2026 (CUET)
+            </div>
+            <div class="video-pub-summary">
+              <strong>E. Ahmed</strong>, R. Raheem, and Md. A. Rahman. Developed a single-trial predictive modeling approach for evaluating multi-objective mechanical and durability performance of recycled aggregate concrete.
+            </div>
+            <div class="video-pub-keywords">
+              <strong>Key areas:</strong> Recycled aggregate concrete, multi-objective modeling, predictive analytics
+            </div>
+          </div>
+
+          <div class="video-box">
+            <video controls preload="metadata" class="video-media">
+              <source src="rac_multiobjective_explainer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              Walkthrough of recycled aggregate concrete modeling and multi-objective performance predictions.
+            </div>
+          </div>
         </div>
 
-        <div class="pub-item">
-          <span class="pub-badge">ICACE 2024</span><br>
-          M. Mohsin, T. Ahmed, R. Raheem, <strong>E. Ahmed</strong>, Md. M. Hameem, and Md. A. Rahman, "Jute Fiber Optimization For Enhancing Concrete Properties: A Review," in <em>Proceedings – 7th International Conference on Advances in Civil Engineering (ICACE-2024)</em>, pp. 2359–2366. Link: <a href="https://icace2024.cuet.ac.bd/proceedings" target="_blank" rel="noopener noreferrer" class="pub-link">icace2024.cuet.ac.bd/proceedings</a>
+        <div class="video-pub-card">
+          <div>
+            <div class="video-pub-title">Jute Fiber Optimization For Enhancing Concrete Properties: A Review</div>
+            <div class="video-pub-meta">
+              <strong>Venue:</strong> ICACE 2024 (pp. 2359–2366) | <strong>Link:</strong> <a href="https://icace2024.cuet.ac.bd/proceedings" target="_blank" rel="noopener noreferrer" class="pub-link">icace2024.cuet.ac.bd/proceedings</a>
+            </div>
+            <div class="video-pub-summary">
+              M. Mohsin, T. Ahmed, R. Raheem, <strong>E. Ahmed</strong>, Md. M. Hameem, and Md. A. Rahman. Synthesized findings on natural jute fiber reinforcement and dosage optimization for improving concrete properties.
+            </div>
+            <div class="video-pub-keywords">
+              <strong>Key areas:</strong> Jute fiber, fiber-reinforced concrete, dosage optimization, review
+            </div>
+          </div>
+
+          <div class="video-box">
+            <video controls preload="metadata" class="video-media">
+              <source src="jute_fiber_concrete_explainer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              Overview of jute fiber dosage effects and performance trade-offs in concrete.
+            </div>
+          </div>
         </div>
 
+        <!-- Poster Presentations -->
         <h3 id="poster-presentations" class="subsection-title">Poster Presentations</h3>
 
-        <div class="pub-item">
-          <span class="pub-badge">National Research Fair 2023</span><br>
-          T. Mahmud, L. Mostafa, <strong>E. Ahmed</strong>, and G. M. S. Islam, "Fiber Reinforced Self-Compacting Concrete Using Fly Ash and Ground Granulated Blast Furnace Slag," presented at the National Research Fair 2023, CUET, Chattogram, Bangladesh.
-        </div>
-
-        <h3 id="academic-projects" class="subsection-title">Selected Academic Projects</h3>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Structural Design of a 10-Story Residential Building – Pink City, Chattogram</div>
-            <div class="entry-date">CE-412</div>
+        <div class="video-pub-card">
+          <div>
+            <div class="video-pub-title">Fiber Reinforced Self-Compacting Concrete Using Fly Ash and Ground Granulated Blast Furnace Slag</div>
+            <div class="video-pub-meta">
+              <strong>Venue:</strong> National Research Fair 2023, CUET, Chattogram, Bangladesh
+            </div>
+            <div class="video-pub-summary">
+              T. Mahmud, L. Mostafa, <strong>E. Ahmed</strong>, and G. M. S. Islam. Investigated self-compacting concrete incorporating fly ash and GGBFS alongside fiber reinforcement.
+            </div>
+            <div class="video-pub-keywords">
+              <strong>Key areas:</strong> Self-compacting concrete, fly ash, GGBFS, fiber reinforcement
+            </div>
           </div>
-          <div class="entry-org">Structural Analysis &amp; Design (Sessional-III)</div>
-          <ul class="entry-details">
-            <li>Modeled, analyzed, and designed in ETABS per BNBC 2020 with AutoCAD architectural drawings (Grade: A+).</li>
-          </ul>
-        </div>
 
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Wind Load &amp; Earthquake Load Calculation According to BNBC 2020</div>
-            <div class="entry-date">CE-313</div>
+          <div class="video-box">
+            <video controls preload="metadata" class="video-media">
+              <source src="frscc_flyash_ggbfs_explainer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              Summary of fly ash and GGBFS proportions in fiber-reinforced self-compacting concrete.
+            </div>
           </div>
-          <div class="entry-org">Structural Analysis &amp; Design-II</div>
-        </div>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Engineering Classification of Soils – Rose Valley Residential Area, Khulshi</div>
-            <div class="entry-date">CE-332</div>
-          </div>
-          <div class="entry-org">Geotechnical Engineering (Sessional-I)</div>
-          <ul class="entry-details">
-            <li>Classified soil per ASTM D 2487-11 standards with final report awarded A+.</li>
-          </ul>
-        </div>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Determination of Various Water Parameters of Rajakhali Canal</div>
-            <div class="entry-date">CE-352</div>
-          </div>
-          <div class="entry-org">Environmental Engineering (Sessional-I)</div>
-          <ul class="entry-details">
-            <li>Evaluated water quality parameters including pH, BOD, and TDS.</li>
-          </ul>
         </div>
       </div>
 
