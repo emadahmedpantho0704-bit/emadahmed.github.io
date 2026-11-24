@@ -214,7 +214,7 @@
 
     .subsection-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #fff;
       margin: 2rem 0 1rem;
     }
@@ -298,6 +298,17 @@
       margin-bottom: 0.3rem;
     }
 
+    .skill-row {
+      margin-bottom: 0.65rem;
+      color: #cbd5e1;
+      font-size: 0.94rem;
+    }
+
+    .skill-label {
+      color: #fff;
+      font-weight: 600;
+    }
+
     .pub-item {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -329,6 +340,49 @@
       text-decoration: underline;
     }
 
+    /* Gallery Grid */
+    .gallery-note {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 0.85rem 1rem;
+    }
+
+    .gallery-title {
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .gallery-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
     /* Responsive Mobile Layout */
     @media (max-width: 850px) {
       .container {
@@ -353,6 +407,8 @@
       <a href="#research" class="tab-link" data-tab="research">Research</a>
       <a href="#experience" class="tab-link" data-tab="experience">Training &amp; Experience</a>
       <a href="#publications" class="tab-link" data-tab="publications">Publications</a>
+      <a href="#cocurricular" class="tab-link" data-tab="cocurricular">Co-curricular Activities</a>
+      <a href="#gallery" class="tab-link" data-tab="gallery">Gallery</a>
     </nav>
   </header>
 
@@ -379,6 +435,7 @@
         <a href="mailto:emadahmedpantho0704@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/emad-ahmed0704" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="https://www.researchgate.net/profile/Emad-Ahmed-40" target="_blank" rel="noopener noreferrer" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
+        <a href="https://orcid.org/0009-0003-7084-1577" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
       </div>
     </aside>
 
@@ -394,10 +451,10 @@
 
         <div class="bio-text">
           <p>
-            I am a Lecturer in the Department of Civil Engineering at Chittagong University of Engineering and Technology (CUET) (Ranked 2nd in the department), with a background in structural engineering and sustainable concrete. Experienced in teaching, research, and structural design using ETABS and AutoCAD, my work bridges fundamental structural mechanics with practical engineering education.
+            I am a Lecturer in the Department of Civil Engineering at Chittagong University of Engineering and Technology (CUET), Bangladesh, where I graduated second in my class with Honours (Dean's Award recipient) and am currently pursuing my M.Sc. in Structural Engineering. My academic background centers on structural engineering, sustainable concrete, and computational modeling, combining undergraduate teaching and structural design (ETABS, AutoCAD) with experimental and data-driven research.
           </p>
           <p>
-            My current research focuses on CO<sub>2</sub> reduction in concrete, machine learning applications in civil engineering, and data-driven structural and seismic vulnerability assessment of existing buildings.
+            For my B.Sc. thesis, I evaluated concrete using natural zeolite as a partial cement replacement under accelerated CO<sub>2</sub> curing, identifying 10% replacement as optimal for strength gain and reduced chloride permeability. In my M.Sc. research, I am developing machine learning-based seismic vulnerability assessments for existing buildings in Dhaka to bridge rapid visual screening with actual building damage states.
           </p>
         </div>
 
@@ -526,7 +583,8 @@
           Training &amp; Experience
         </h2>
 
-        <h3 class="subsection-title" style="margin-top: 0;">Academic &amp; Professional Experience</h3>
+        <!-- Segment 1: Professional Experiences -->
+        <h3 class="subsection-title" style="margin-top: 0;">Professional Experiences</h3>
 
         <div class="entry-card">
           <div class="entry-header">
@@ -547,16 +605,14 @@
           <div class="entry-org">Leading University (LU), Sylhet</div>
         </div>
 
-        <h3 class="subsection-title">Industrial Experience &amp; Training</h3>
-
         <div class="entry-card">
           <div class="entry-header">
-            <div class="entry-title">Industrial Training – Bangladesh Water Development Board (BWDB)</div>
-            <div class="entry-date">Dec 2024</div>
+            <div class="entry-title">Foundation Training Program (IQAC)</div>
+            <div class="entry-date">30 Jan 2026</div>
           </div>
-          <div class="entry-org">Dhaka</div>
+          <div class="entry-org">Leading University (LU), Sylhet</div>
           <ul class="entry-details">
-            <li>Gained practical exposure to water resource management, civil infrastructure, and government engineering procedures; presented report to the Civil Engineering Head and Board.</li>
+            <li>Completed faculty induction training organized by the Institutional Quality Assurance Cell (IQAC).</li>
           </ul>
         </div>
 
@@ -565,7 +621,10 @@
             <div class="entry-title">Sanitation for Urban Low-Income Communities</div>
             <div class="entry-date">03–04 Aug 2025</div>
           </div>
-          <div class="entry-org">Dept. of Civil Engineering, IRHES, CUET &amp; ITN-BUET (2-day program on sustainable sanitation &amp; FSM)</div>
+          <div class="entry-org">Dept. of Civil Engineering, IRHES, CUET &amp; ITN-BUET</div>
+          <ul class="entry-details">
+            <li>Completed two-day training on sustainable sanitation, fecal sludge management (FSM), and urban low-income challenges.</li>
+          </ul>
         </div>
 
         <div class="entry-card">
@@ -573,15 +632,59 @@
             <div class="entry-title">EDGE Training (ICT Division, Bangladesh)</div>
             <div class="entry-date">Jun – Oct 2024</div>
           </div>
-          <div class="entry-org">Training in ETABS, HEC-HMS, SewerGEMS, PLAXIS, and Microsoft Project</div>
+          <div class="entry-org">Enhancing Digital Government and Economy (EDGE) Project</div>
+          <ul class="entry-details">
+            <li>Gained proficiency in ETABS, HEC-HMS, SewerGEMS, PLAXIS, and Microsoft Project.</li>
+          </ul>
         </div>
 
         <div class="entry-card">
           <div class="entry-header">
-            <div class="entry-title">Foundation Training Program (IQAC) &amp; Fire Safety Workshop</div>
-            <div class="entry-date">30 Jan 2026 / 02 Nov 2023</div>
+            <div class="entry-title">Exploring Fire Safety in Civil Engineering</div>
+            <div class="entry-date">02 Nov 2023</div>
           </div>
-          <div class="entry-org">Leading University IQAC faculty session; "Exploring Fire Safety in Civil Engineering" (ASCE Student Chapter, CUET)</div>
+          <div class="entry-org">ASCE Student Chapter, CUET</div>
+        </div>
+
+        <!-- Segment 2: Industrial Experiences -->
+        <h3 class="subsection-title">Industrial Experiences</h3>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">Industrial Training – Bangladesh Water Development Board (BWDB)</div>
+            <div class="entry-date">Dec 2024</div>
+          </div>
+          <div class="entry-org">Dhaka</div>
+          <ul class="entry-details">
+            <li>Gained practical exposure to water resource management, civil infrastructure projects, and government engineering procedures.</li>
+            <li>Prepared and presented a comprehensive report to the Head and Board of the Department of Civil Engineering.</li>
+          </ul>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">Industrial Visits</div>
+            <div class="entry-date">2023 – 2025</div>
+          </div>
+          <div class="entry-org">Chattogram, Bangladesh</div>
+          <ul class="entry-details">
+            <li><strong>Chittagong Port Authority</strong> (17 Feb 2025)</li>
+            <li><strong>AKS Steel Factory, AKS Group</strong> (17–18 Jul 2024)</li>
+            <li><strong>Royal Cement Factory &amp; KSRM Steel Mill</strong> (26 Nov 2023)</li>
+            <li><strong>CWASA Sewage Treatment Plant</strong> (11 Nov 2023)</li>
+          </ul>
+        </div>
+
+        <!-- Segment 3: Technical Skills -->
+        <h3 class="subsection-title">Technical Skills</h3>
+
+        <div class="entry-card">
+          <div class="skill-row"><span class="skill-label">Structural Analysis &amp; Design:</span> AutoCAD, ETABS</div>
+          <div class="skill-row"><span class="skill-label">Programming Languages:</span> C++, Python</div>
+          <div class="skill-row"><span class="skill-label">Project Management:</span> Microsoft Project</div>
+          <div class="skill-row"><span class="skill-label">Office Software:</span> MS Word, Excel, PowerPoint</div>
+          <div class="skill-row"><span class="skill-label">Other Tools:</span> Mendeley</div>
+          <div class="skill-row" style="margin-bottom: 0;"><span class="skill-label">Languages:</span> Fluent in Bangla and English</div>
         </div>
       </div>
 
@@ -614,6 +717,131 @@
         <div class="pub-item">
           <span class="pub-badge">National Research Fair 2023</span><br>
           T. Mahmud, L. Mostafa, <strong>E. Ahmed</strong>, and G. M. S. Islam, "Fiber Reinforced Self-Compacting Concrete Using Fly Ash and Ground Granulated Blast Furnace Slag," presented at the National Research Fair 2023, CUET, Chattogram, Bangladesh.
+        </div>
+      </div>
+
+      <!-- CO-CURRICULAR ACTIVITIES -->
+      <div id="tab-cocurricular" class="tab-panel">
+        <h2 class="section-title">
+          <i class="fa-solid fa-award"></i>
+          Co-curricular Activities
+        </h2>
+
+        <h3 class="subsection-title" style="margin-top: 0;">Awards, Competitions &amp; Scholarships</h3>
+
+        <div class="entry-card">
+          <div class="entry-title">Dean's Award</div>
+          <div class="entry-org">Department of Civil Engineering, CUET</div>
+          <ul class="entry-details">
+            <li>Selected in the official merit list; Top 2 among 132 students.</li>
+          </ul>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">1st Runner-up – Case Study Competition</div>
+            <div class="entry-date">2023</div>
+          </div>
+          <div class="entry-org">"Sustainable Campus Expansion Proposal for CUET," organized by the Department of Civil Engineering, CUET.</div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-title">Best Student Award</div>
+          <div class="entry-org">Recognized by the Department of Narcotics Control in collaboration with the Department of Civil Engineering, CUET.</div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-title">Competitions &amp; Research Fairs</div>
+          <ul class="entry-details">
+            <li><strong>Research Fair Participant:</strong> Presented a poster at the "National Research Fair 2023" organized by CUET (28 Aug 2023).</li>
+            <li><strong>Concrete Fest Participant:</strong> Participated in the "National Concrete Fest 2023" hosted by the ACI Student Chapter, CUET.</li>
+            <li><strong>Mix Design Competition Participant:</strong> Competed in the "24-hour Mix Design Competition" organized by the ACI Student Chapter, CUET.</li>
+          </ul>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-title">Scholarships</div>
+          <ul class="entry-details">
+            <li>Academic Scholarships for all semesters of excellence.</li>
+            <li>Board Scholarships in JSC and SSC.</li>
+          </ul>
+        </div>
+
+        <h3 class="subsection-title">Leadership &amp; Volunteering</h3>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">Public Relations Secretary</div>
+            <div class="entry-date">2024 – 2025</div>
+          </div>
+          <div class="entry-org">Sylhet Students' Forum, CUET</div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">Volunteer – ICACE 2024</div>
+            <div class="entry-date">12–14 Dec 2024</div>
+          </div>
+          <div class="entry-org">7th International Conference on Advances in Civil Engineering, CUET</div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">Trainer – ASCE Student Chapter Session</div>
+            <div class="entry-date">Mar 2024</div>
+          </div>
+          <div class="entry-org">CUET ASCE Student Chapter</div>
+          <ul class="entry-details">
+            <li>Conducted an online session for members providing fundamental concepts and guidance for an upcoming case study competition.</li>
+          </ul>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-header">
+            <div class="entry-title">Organizing Team Member – Convocation 2026</div>
+            <div class="entry-date">02–03 Jan 2026</div>
+          </div>
+          <div class="entry-org">Leading University, Sylhet</div>
+          <ul class="entry-details">
+            <li>Received official appreciation from the Registrar for contribution to event execution.</li>
+          </ul>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-title">Student Chapter Memberships (Former)</div>
+          <div class="entry-org">Member – ACI &amp; ASCE Student Chapter, CUET</div>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div id="tab-gallery" class="tab-panel">
+        <h2 class="section-title">
+          <i class="fa-regular fa-images"></i>
+          Gallery
+        </h2>
+
+        <p class="gallery-note">
+          Upload photos to your GitHub repository and update the image filenames and captions below whenever you want to add new moments.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <img src="IMG_0111.jpg" alt="Emad Ahmed" />
+            <div class="gallery-caption">
+              <div class="gallery-title">Academic Profile</div>
+              <div class="gallery-meta">CUET, Chattogram</div>
+            </div>
+          </div>
+
+          <!-- Duplicate this .gallery-card block to add more photos:
+          <div class="gallery-card">
+            <img src="your_photo.jpg" alt="Photo description" />
+            <div class="gallery-caption">
+              <div class="gallery-title">Photo Title</div>
+              <div class="gallery-meta">Event / Date</div>
+            </div>
+          </div>
+          -->
         </div>
       </div>
 
