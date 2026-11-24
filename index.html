@@ -273,10 +273,6 @@
       scroll-margin-top: 90px;
     }
 
-    .scroll-anchor {
-      scroll-margin-top: 90px;
-    }
-
     .bio-text p {
       color: #cbd5e1;
       font-size: 1.02rem;
@@ -479,7 +475,21 @@
         </div>
       </div>
 
-      <a href="#experience" class="tab-link" data-tab="experience">Training &amp; Experiences</a>
+      <!-- Training & Experiences with Hover Subheadings -->
+      <div class="nav-dropdown">
+        <a href="#experience" class="tab-link" data-tab="experience">
+          Training &amp; Experiences <i class="fa-solid fa-chevron-down" style="font-size: 0.68rem;"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-inner">
+            <a href="#professional-experiences" data-tab="experience" data-target="professional-experiences">Professional Experiences</a>
+            <a href="#training-section" data-tab="experience" data-target="training-section">Training</a>
+            <a href="#industrial-experiences" data-tab="experience" data-target="industrial-experiences">Industrial Experiences</a>
+            <a href="#technical-skills" data-tab="experience" data-target="technical-skills">Technical Skills</a>
+          </div>
+        </div>
+      </div>
+
       <a href="#awards" class="tab-link" data-tab="awards">Awards &amp; Achievement</a>
       <a href="#cocurricular" class="tab-link" data-tab="cocurricular">Co-curricular Activities</a>
       <a href="#gallery" class="tab-link" data-tab="gallery">Gallery</a>
@@ -687,7 +697,7 @@
         </h2>
 
         <!-- Segment 1: Professional Experiences -->
-        <h3 class="subsection-title" style="margin-top: 0;">Professional Experiences</h3>
+        <h3 id="professional-experiences" class="subsection-title" style="margin-top: 0;">Professional Experiences</h3>
 
         <div class="entry-card">
           <div class="entry-header">
@@ -709,7 +719,7 @@
         </div>
 
         <!-- Segment 2: Training -->
-        <h3 class="subsection-title">Training</h3>
+        <h3 id="training-section" class="subsection-title">Training</h3>
 
         <div class="entry-card">
           <div class="entry-header">
@@ -753,7 +763,7 @@
         </div>
 
         <!-- Segment 3: Industrial Experiences -->
-        <h3 class="subsection-title">Industrial Experiences</h3>
+        <h3 id="industrial-experiences" class="subsection-title">Industrial Experiences</h3>
 
         <div class="entry-card">
           <div class="entry-header">
@@ -782,7 +792,7 @@
         </div>
 
         <!-- Segment 4: Technical Skills -->
-        <h3 class="subsection-title">Technical Skills</h3>
+        <h3 id="technical-skills" class="subsection-title">Technical Skills</h3>
 
         <div class="entry-card">
           <div class="skill-row"><span class="skill-label">Structural Analysis &amp; Design:</span> AutoCAD, ETABS</div>
