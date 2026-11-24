@@ -280,7 +280,8 @@
     }
 
     .cta-buttons {
-      margin-top: 2rem;
+      margin-top: 1.6rem;
+      margin-bottom: 2.6rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
@@ -304,6 +305,46 @@
 
     .btn-primary:hover {
       background-color: #93c5fd;
+    }
+
+    /* Research Interests Grid on Home Tab */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .interest-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.15rem 1.3rem;
+      transition: border-color 0.2s;
+    }
+
+    .interest-card:hover {
+      border-color: rgba(96, 165, 250, 0.35);
+    }
+
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.45rem;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .interest-header i {
+      color: var(--accent-blue);
+      font-size: 0.95rem;
+    }
+
+    .interest-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
     }
 
     /* Cards & Lists for Tabs */
@@ -444,6 +485,10 @@
         gap: 2.5rem;
         margin: 2rem auto;
       }
+
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -526,7 +571,7 @@
     <!-- Right Content Area -->
     <section class="content-section">
 
-      <!-- 1. HOME / PROFILE SUMMARY -->
+      <!-- 1. HOME / PROFILE SUMMARY & RESEARCH INTERESTS -->
       <div id="tab-home" class="tab-panel active">
         <h2 class="section-title">
           <i class="fa-regular fa-user"></i>
@@ -544,6 +589,54 @@
 
         <div class="cta-buttons">
           <a href="Emad_Ahmed_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View CV (PDF)</a>
+        </div>
+
+        <!-- Research Interests Section -->
+        <h2 class="section-title">
+          <i class="fa-solid fa-compass"></i>
+          Research Interests
+        </h2>
+
+        <div class="interests-grid">
+          <div class="interest-card">
+            <div class="interest-header">
+              <i class="fa-solid fa-leaf"></i>
+              <span>Sustainable &amp; Low-Carbon Concrete</span>
+            </div>
+            <div class="interest-desc">
+              Accelerated CO<sub>2</sub> curing, supplementary cementitious materials (natural zeolite, fly ash, GGBFS), fiber-reinforced composites, and recycled aggregate concrete.
+            </div>
+          </div>
+
+          <div class="interest-card">
+            <div class="interest-header">
+              <i class="fa-solid fa-house-crack"></i>
+              <span>Seismic Vulnerability &amp; Resilience</span>
+            </div>
+            <div class="interest-desc">
+              Rapid visual screening, structural damage state evaluation, and seismic risk mitigation for existing reinforced concrete buildings in urban centers.
+            </div>
+          </div>
+
+          <div class="interest-card">
+            <div class="interest-header">
+              <i class="fa-solid fa-brain"></i>
+              <span>Machine Learning in Civil Engineering</span>
+            </div>
+            <div class="interest-desc">
+              Data-driven predictive modeling for multi-objective concrete mix optimization, structural vulnerability, and urban infrastructure performance.
+            </div>
+          </div>
+
+          <div class="interest-card">
+            <div class="interest-header">
+              <i class="fa-solid fa-building"></i>
+              <span>Structural Analysis &amp; Design</span>
+            </div>
+            <div class="interest-desc">
+              Finite element modeling, multi-story RC building design, and lateral wind and earthquake load evaluation under BNBC 2020.
+            </div>
+          </div>
         </div>
       </div>
 
