@@ -430,9 +430,9 @@
     .entry-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 1.25rem 1.4rem;
-      margin-bottom: 1.1rem;
+      border-radius: 10px;
+      padding: 1.35rem 1.55rem;
+      margin-bottom: 1.15rem;
       transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
@@ -484,7 +484,6 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 1rem;
-      flex-wrap: wrap;
       margin-bottom: 0.35rem;
     }
 
@@ -492,24 +491,34 @@
       font-weight: 600;
       color: var(--text-heading);
       font-size: 1rem;
+      line-height: 1.4;
+      flex: 1 1 auto;
+      text-align: left;
     }
 
     .entry-date {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
+      font-weight: 500;
       color: var(--accent-blue);
       white-space: nowrap;
+      margin-left: auto;
+      text-align: right;
+      flex-shrink: 0;
     }
 
     .entry-org {
       font-size: 0.92rem;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.55rem;
+      text-align: left;
     }
 
     .entry-details {
       color: var(--text-body);
       font-size: 0.93rem;
-      padding-left: 1.1rem;
+      padding-left: 1.15rem;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .entry-details li {
@@ -520,30 +529,74 @@
     .cert-2x3-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.1rem;
-      margin-bottom: 1.25rem;
+      gap: 1.15rem;
+      margin-bottom: 1.35rem;
     }
 
     .cert-cell {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 1.15rem;
+      border-radius: 10px;
+      padding: 1.2rem 1.25rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cert-cell:hover {
+      border-color: var(--accent-blue);
+    }
+
+    .cert-title {
+      font-weight: 600;
+      color: var(--text-heading);
+      font-size: 0.98rem;
+      line-height: 1.38;
+      text-align: left;
+      margin-bottom: 0.25rem;
+    }
+
+    .cert-meta-right {
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--accent-blue);
+      text-align: right;
+      margin-bottom: 0.45rem;
+    }
+
+    .cert-org {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      text-align: left;
+      margin-bottom: 0.65rem;
+    }
+
+    .cert-bullets {
+      color: var(--text-body);
+      font-size: 0.89rem;
+      line-height: 1.58;
+      padding-left: 1.1rem;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .cert-image-cell {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 0.75rem;
+      border-radius: 10px;
+      padding: 0.8rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
+      gap: 0.5rem;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cert-image-cell:hover {
+      border-color: var(--accent-blue);
     }
 
     .cert-image-cell img {
@@ -560,6 +613,7 @@
       font-size: 0.78rem;
       color: var(--text-muted);
       text-align: center;
+      line-height: 1.4;
     }
 
     .skill-row {
@@ -1310,44 +1364,32 @@
         <div class="cert-2x3-grid" role="table" aria-label="Featured Awards and Certificates">
           <!-- Row 1, Col 1 -->
           <div class="cert-cell" role="cell">
-            <div>
-              <div class="entry-header">
-                <div class="entry-title">Dean's Award</div>
-                <div class="entry-date">CUET</div>
-              </div>
-              <div class="entry-org">Chittagong University of Engineering &amp; Technology</div>
-              <ul class="entry-details">
-                <li>Selected in the official merit list; Top 2 among 132 students in the department (CGPA 3.77 / 4.00 with Honours).</li>
-              </ul>
-            </div>
+            <div class="cert-title">Dean's Award</div>
+            <div class="cert-meta-right">CUET</div>
+            <div class="cert-org">Chittagong University of Engineering &amp; Technology</div>
+            <ul class="cert-bullets">
+              <li>Selected in the official merit list; Top 2 among 132 students in the department (CGPA 3.77 / 4.00 with Honours).</li>
+            </ul>
           </div>
 
           <!-- Row 1, Col 2 -->
           <div class="cert-cell" role="cell">
-            <div>
-              <div class="entry-header">
-                <div class="entry-title">1st Runner-up – Case Study Competition</div>
-                <div class="entry-date">2023</div>
-              </div>
-              <div class="entry-org">Department of Civil Engineering, CUET</div>
-              <ul class="entry-details">
-                <li>"Sustainable Campus Expansion Proposal for CUET", organized by the Department of Civil Engineering, CUET-2023.</li>
-              </ul>
-            </div>
+            <div class="cert-title">1st Runner-up – Case Study Competition</div>
+            <div class="cert-meta-right">2023</div>
+            <div class="cert-org">Department of Civil Engineering, CUET</div>
+            <ul class="cert-bullets">
+              <li>"Sustainable Campus Expansion Proposal for CUET", organized by the Department of Civil Engineering, CUET-2023.</li>
+            </ul>
           </div>
 
           <!-- Row 1, Col 3 -->
           <div class="cert-cell" role="cell">
-            <div>
-              <div class="entry-header">
-                <div class="entry-title">Best Student Award</div>
-                <div class="entry-date">CUET</div>
-              </div>
-              <div class="entry-org">Department of Narcotics Control &amp; Dept. of Civil Engineering, CUET</div>
-              <ul class="entry-details">
-                <li>Recognized jointly by the Department of Narcotics Control and the Department of Civil Engineering.</li>
-              </ul>
-            </div>
+            <div class="cert-title">Best Student Award</div>
+            <div class="cert-meta-right">CUET</div>
+            <div class="cert-org">Department of Narcotics Control &amp; Dept. of Civil Engineering, CUET</div>
+            <ul class="cert-bullets">
+              <li>Recognized jointly by the Department of Narcotics Control and the Department of Civil Engineering.</li>
+            </ul>
           </div>
 
           <!-- Row 2, Col 1 -->
@@ -1374,44 +1416,32 @@
         <div class="cert-2x3-grid" role="table" aria-label="Academic and National Event Recognitions 2023">
           <!-- Row 1, Col 1 -->
           <div class="cert-cell" role="cell">
-            <div>
-              <div class="entry-header">
-                <div class="entry-title">Research Fair Participant</div>
-                <div class="entry-date">2023</div>
-              </div>
-              <div class="entry-org">CUET &amp; ACI Student Chapter, CUET</div>
-              <ul class="entry-details">
-                <li>Represented a poster at the "National Research Fair 2023", organized by CUET.</li>
-              </ul>
-            </div>
+            <div class="cert-title">Research Fair Participant</div>
+            <div class="cert-meta-right">2023</div>
+            <div class="cert-org">CUET &amp; ACI Student Chapter, CUET</div>
+            <ul class="cert-bullets">
+              <li>Represented a poster at the "National Research Fair 2023", organized by CUET.</li>
+            </ul>
           </div>
 
           <!-- Row 1, Col 2 -->
           <div class="cert-cell" role="cell">
-            <div>
-              <div class="entry-header">
-                <div class="entry-title">Concrete Fest Participant</div>
-                <div class="entry-date">2023</div>
-              </div>
-              <div class="entry-org">CUET &amp; ACI Student Chapter, CUET</div>
-              <ul class="entry-details">
-                <li>Participated in the "National Concrete Fest 2023", hosted by the ACI Student Chapter, CUET.</li>
-              </ul>
-            </div>
+            <div class="cert-title">Concrete Fest Participant</div>
+            <div class="cert-meta-right">2023</div>
+            <div class="cert-org">CUET &amp; ACI Student Chapter, CUET</div>
+            <ul class="cert-bullets">
+              <li>Participated in the "National Concrete Fest 2023", hosted by the ACI Student Chapter, CUET.</li>
+            </ul>
           </div>
 
           <!-- Row 1, Col 3 -->
           <div class="cert-cell" role="cell">
-            <div>
-              <div class="entry-header">
-                <div class="entry-title">Mix Design Competition Participant</div>
-                <div class="entry-date">2023</div>
-              </div>
-              <div class="entry-org">CUET &amp; ACI Student Chapter, CUET</div>
-              <ul class="entry-details">
-                <li>Competed in the "24-hour Mix Design Competition", organized by the ACI Student Chapter, CUET.</li>
-              </ul>
-            </div>
+            <div class="cert-title">Mix Design Competition Participant</div>
+            <div class="cert-meta-right">2023</div>
+            <div class="cert-org">CUET &amp; ACI Student Chapter, CUET</div>
+            <ul class="cert-bullets">
+              <li>Competed in the "24-hour Mix Design Competition", organized by the ACI Student Chapter, CUET.</li>
+            </ul>
           </div>
 
           <!-- Row 2, Col 1 -->
