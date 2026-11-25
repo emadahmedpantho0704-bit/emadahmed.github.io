@@ -7,6 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* =====================================================================
+       [GLOBAL STYLES & THEME VARIABLES]
+       ===================================================================== */
     :root {
       --bg-dark: #0d1624;
       --bg-nav: #0a111d;
@@ -243,11 +246,16 @@
       align-items: start;
     }
 
-    /* Left Profile Sidebar */
+    /* =====================================================================
+       [FIXED PROFILE SIDEBAR]
+       ===================================================================== */
     .sidebar {
+      position: sticky;
+      top: 5.5rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      z-index: 20;
     }
 
     .profile-pic {
@@ -354,6 +362,9 @@
       scroll-margin-top: 90px;
     }
 
+    /* =====================================================================
+       [HOME STYLES]
+       ===================================================================== */
     .bio-text p {
       color: var(--text-body);
       font-size: 1.02rem;
@@ -388,7 +399,6 @@
       background-color: var(--btn-blue-hover);
     }
 
-    /* Research Interests Grid on Home Tab */
     .interests-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -428,7 +438,9 @@
       line-height: 1.55;
     }
 
-    /* Cards & Lists for Tabs */
+    /* =====================================================================
+       [EDUCATION & EXPERIENCES SHARED CARD STYLES]
+       ===================================================================== */
     .entry-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -526,7 +538,9 @@
       margin-bottom: 0.3rem;
     }
 
-    /* Unified 3-Column Award + Certificate Cards */
+    /* =====================================================================
+       [AWARDS & ACHIEVEMENT STYLES]
+       ===================================================================== */
     .awards-3col-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -683,7 +697,9 @@
       text-decoration: underline;
     }
 
-    /* Two-Column Research & Publication Cards (Left Text + Right Video) */
+    /* =====================================================================
+       [RESEARCH & PUBLICATION STYLES]
+       ===================================================================== */
     .video-pub-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -765,7 +781,9 @@
       line-height: 1.45;
     }
 
-    /* Gallery 2-Column Grid (2 Pictures Per Row, Full Frame Visible, 1 Caption Per Photo) */
+    /* =====================================================================
+       [GALLERY STYLES]
+       ===================================================================== */
     .gallery-note {
       color: var(--text-muted);
       font-size: 0.9rem;
@@ -822,6 +840,11 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
         margin: 2rem auto;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
       }
 
       .interests-grid,
@@ -912,7 +935,9 @@
   <!-- Main Two-Column Portfolio -->
   <main class="container">
 
-    <!-- Left Sidebar -->
+    <!-- =====================================================================
+         [FIXED PROFILE SIDEBAR]
+         ===================================================================== -->
     <aside class="sidebar">
       <img src="IMG_0111.jpg" alt="Emad Ahmed" class="profile-pic" />
       <h1 class="name">Emad Ahmed</h1>
@@ -939,7 +964,9 @@
     <!-- Right Content Area -->
     <section class="content-section">
 
-      <!-- 1. HOME / PROFILE SUMMARY & RESEARCH INTERESTS -->
+      <!-- =====================================================================
+           [SECTION: HOME]
+           ===================================================================== -->
       <div id="tab-home" class="tab-panel active">
         <h2 class="section-title">
           <i class="fa-regular fa-user"></i>
@@ -1008,7 +1035,9 @@
         </div>
       </div>
 
-      <!-- 2. EDUCATION -->
+      <!-- =====================================================================
+           [SECTION: EDUCATION]
+           ===================================================================== -->
       <div id="tab-education" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-graduation-cap"></i>
@@ -1068,7 +1097,9 @@
         </div>
       </div>
 
-      <!-- 3. RESEARCH & PUBLICATION (TWO-COLUMN: LEFT TEXT + RIGHT AUTOPLAY VIDEO ON SCROLL) -->
+      <!-- =====================================================================
+           [SECTION: RESEARCH & PUBLICATION]
+           ===================================================================== -->
       <div id="tab-research-publication" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-flask"></i>
@@ -1265,7 +1296,9 @@
         </div>
       </div>
 
-      <!-- 4. TRAINING & EXPERIENCES -->
+      <!-- =====================================================================
+           [SECTION: TRAINING & EXPERIENCES]
+           ===================================================================== -->
       <div id="tab-experience" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-briefcase"></i>
@@ -1410,7 +1443,9 @@
         </div>
       </div>
 
-      <!-- 5. AWARDS & ACHIEVEMENT -->
+      <!-- =====================================================================
+           [SECTION: AWARDS & ACHIEVEMENT]
+           ===================================================================== -->
       <div id="tab-awards" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-award"></i>
@@ -1536,7 +1571,9 @@
         </div>
       </div>
 
-      <!-- 6. CO-CURRICULAR ACTIVITIES -->
+      <!-- =====================================================================
+           [SECTION: CO-CURRICULAR ACTIVITIES]
+           ===================================================================== -->
       <div id="tab-cocurricular" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-users"></i>
@@ -1590,7 +1627,9 @@
         </div>
       </div>
 
-      <!-- 7. GALLERY (2 PICTURES PER ROW, FULL FRAME VISIBLE, 1 CAPTION PER PHOTO) -->
+      <!-- =====================================================================
+           [SECTION: GALLERY]
+           ===================================================================== -->
       <div id="tab-gallery" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-regular fa-images"></i>
