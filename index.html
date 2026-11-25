@@ -765,7 +765,7 @@
       line-height: 1.45;
     }
 
-    /* Gallery Grid */
+    /* Gallery 3-Column Grid (3 Pictures Per Row, 1 Caption Per Photo) */
     .gallery-note {
       color: var(--text-muted);
       font-size: 0.9rem;
@@ -774,38 +774,45 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
+      align-items: stretch;
     }
 
     .gallery-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-blue);
     }
 
     .gallery-card img {
       width: 100%;
-      height: 180px;
+      height: 195px;
       object-fit: cover;
       display: block;
     }
 
     .gallery-caption {
       padding: 0.85rem 1rem;
-    }
-
-    .gallery-title {
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 500;
       color: var(--text-heading);
-      font-size: 0.92rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .gallery-meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+      line-height: 1.45;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Responsive Mobile Layout */
@@ -818,7 +825,8 @@
 
       .interests-grid,
       .video-pub-card,
-      .awards-3col-grid {
+      .awards-3col-grid,
+      .gallery-grid {
         grid-template-columns: 1fr;
       }
 
@@ -830,6 +838,13 @@
       .inst-logo-box {
         width: 48px;
         height: 48px;
+      }
+    }
+
+    @media (min-width: 581px) and (max-width: 850px) {
+      .gallery-grid,
+      .awards-3col-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -1083,7 +1098,7 @@
               Your browser does not support the video tag.
             </video>
             <div class="video-caption">
-              Explanatory walkthrough of the ongoing M.Sc. thesis proposal on seismic screening and retrofit support in Dhaka.
+              Explanatory walkthrough of the ongoing M.Sc. thesis proposal on seismic vulnerability screening and retrofit decision support for RC buildings in Dhaka.
             </div>
           </div>
         </div>
@@ -1093,27 +1108,29 @@
 
         <div class="video-pub-card">
           <div>
-            <div class="video-pub-title">Natural Zeolite Concrete Under Hybrid Carbonation &amp; Water Curing: Mechanical, Durability &amp; Phase Behavior</div>
+            <div class="video-pub-title">Performance Evaluation of Concrete Using Zeolite as a Partial Replacement for Cement under CO<sub>2</sub> Curing</div>
             <div class="video-pub-meta">
-              <strong>Stage:</strong> B.Sc. <strong>Status:</strong> Completed | <strong>Candidate:</strong> Emad Ahmed (1901126) | <strong>Supervisor:</strong> Prof. Dr. Md. Moinul Islam
+              <strong>Stage:</strong> B.Sc. <strong>Status:</strong> Completed (Jun 2025) | <strong>Supervisor:</strong> Prof. Dr. Md. Moinul Islam
+            </div>
+            <div class="video-pub-summary">
+              Investigated 0–20% natural zeolite replacement under conventional water curing versus 24-hour early CO<sub>2</sub> curing followed by water curing at 28 and 56 days.
             </div>
             <ul class="video-pub-bullets">
-              <li>Evaluated concrete with 0–20% natural zeolite replacement under conventional water curing versus 24-hour early carbonation followed by water curing at 28 and 56 days.</li>
-              <li>Workability decreased from 100 mm slump (plain cement) to 44 mm at 20% zeolite, while 10% replacement consistently gave peak performance—reaching 38.42 MPa compressive strength (+15.0%), 3.62 MPa split tensile strength (+13.7%), and 1864 C RCPT charge passed (low permeability) at 56 days under carbonation + water curing.</li>
-              <li>Ultrasonic pulse velocity correlated strongly with compressive strength (R&sup2; = 0.955–0.984), complemented by TGA and FTIR phase characterization alongside water absorption and permeable void tests.</li>
+              <li>Identified 10% replacement as optimal for compressive/splitting tensile strength, ultrasonic pulse velocity (UPV) correlation, and reduced water absorption/permeability.</li>
+              <li>Supported findings with thermogravimetric analysis (TGA) and Fourier-transform infrared spectroscopy (FTIR).</li>
             </ul>
             <div class="video-pub-keywords">
-              <strong>Key areas:</strong> Natural zeolite, 24h early carbonation + water curing, RCPT, UPV, TGA, FTIR
+              <strong>Key areas:</strong> Natural zeolite, early CO<sub>2</sub> curing, UPV, TGA/FTIR, sustainable concrete
             </div>
           </div>
 
           <div class="video-box">
             <video controls muted preload="metadata" playsinline class="video-media">
-              <source src="ZeoliteCO2CuringExplainer.mp4" type="video/mp4">
+              <source src="ZeoliteThesisExplainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
             <div class="video-caption">
-              Thesis summary on 0–20% natural zeolite mixes, with two curing methods and results checks.
+              Video summary of B.Sc. thesis experimental methodology, mechanical and durability results, and TGA/FTIR characterization.
             </div>
           </div>
         </div>
@@ -1125,73 +1142,27 @@
           <div>
             <div class="video-pub-title">Machine Learning Based CO<sub>2</sub> Emission Prediction at an Urban Intersection under Heterogeneous Traffic Using SUMO Microsimulation</div>
             <div class="video-pub-meta">
-              <strong>Venue:</strong> 2026 IEEE QPAIN | <strong>DOI:</strong> <a href="https://doi.org/10.1109/QPAIN69676.2026.11546352" target="_blank" rel="noopener noreferrer" class="pub-link">10.1109/QPAIN69676.2026.11546352</a>
+              <strong>Authors:</strong> Syeda Tamzida, Shahriar Lamun, Emad Ahmed, Sanupa Sarkar, Choity Roy | <strong>Venue:</strong> 2026 IEEE QPAIN
             </div>
             <div class="video-pub-summary">
-              S. T. Akter, S. S. I. Lamun, <strong>E. Ahmed</strong>, S. Sarkar, and C. Roy. Extracted drone trajectories at Tigerpass intersection in Chattogram, simulated peak traffic in SUMO, and trained ML models—with SVR reaching R<sup>2</sup> up to 0.9987.
+              Integrated drone-derived vehicle trajectories, SUMO microscopic traffic simulation, and machine learning models to estimate intersection-level CO<sub>2</sub> emissions and waiting times during peak traffic periods.
             </div>
+            <ul class="video-pub-bullets">
+              <li>Compared Random Forest, Linear Regression, Support Vector Regression (SVR), and XGBoost across morning and afternoon peak episodes.</li>
+              <li>Demonstrated high predictive accuracy (SVR achieving up to R<sup>2</sup> &approx; 0.9987) for data-driven traffic and environmental management.</li>
+            </ul>
             <div class="video-pub-keywords">
-              <strong>Key areas:</strong> CO<sub>2</sub> emission prediction, SUMO microsimulation, SVR, drone traffic monitoring
+              <strong>Key areas:</strong> SUMO microsimulation, CO<sub>2</sub> emission prediction, urban traffic, SVR, XGBoost
             </div>
           </div>
 
           <div class="video-box">
             <video controls muted preload="metadata" playsinline class="video-media">
-              <source src="TigerpassCO2Explainer.mp4" type="video/mp4">
+              <source src="QPAIN_Explainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
             <div class="video-caption">
-              Why we studied Tigerpass, drone data collection, SUMO + ML pipeline, and key results.
-            </div>
-          </div>
-        </div>
-
-        <div class="video-pub-card">
-          <div>
-            <div class="video-pub-title">Multi-Objective Performance Modeling of Recycled Aggregate Concrete: A Single-Trial Predictive Approach</div>
-            <div class="video-pub-meta">
-              <strong>Status:</strong> Under Review – ICACE 2026 (CUET)
-            </div>
-            <div class="video-pub-summary">
-              <strong>E. Ahmed</strong>, R. Raheem, and Md. A. Rahman. Evaluates regression and ensemble models to jointly predict compressive strength, splitting tensile strength, cost, and CO<sub>2</sub> emissions of recycled aggregate concrete in a single trial.
-            </div>
-            <div class="video-pub-keywords">
-              <strong>Key areas:</strong> Recycled aggregate concrete, multi-objective modeling, predictive analytics
-            </div>
-          </div>
-
-          <div class="video-box">
-            <video controls muted preload="metadata" playsinline class="video-media">
-              <source src="RACMultiObjectiveExplainer.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <div class="video-caption">
-              Walkthrough of recycled aggregate concrete modeling and multi-objective performance predictions.
-            </div>
-          </div>
-        </div>
-
-        <div class="video-pub-card">
-          <div>
-            <div class="video-pub-title">Jute Fiber Optimization For Enhancing Concrete Properties: A Review</div>
-            <div class="video-pub-meta">
-              <strong>Venue:</strong> ICACE 2024 (pp. 2359–2366) | <strong>Link:</strong> <a href="https://icace2024.cuet.ac.bd/proceedings" target="_blank" rel="noopener noreferrer" class="pub-link">icace2024.cuet.ac.bd/proceedings</a>
-            </div>
-            <div class="video-pub-summary">
-              M. Mohsin, T. Ahmed, R. Raheem, <strong>E. Ahmed</strong>, Md. M. Hameem, and Md. A. Rahman. Synthesized findings on natural jute fiber reinforcement and dosage optimization for improving concrete properties.
-            </div>
-            <div class="video-pub-keywords">
-              <strong>Key areas:</strong> Jute fiber, fiber-reinforced concrete, dosage optimization, review
-            </div>
-          </div>
-
-          <div class="video-box">
-            <video controls muted preload="metadata" playsinline class="video-media">
-              <source src="JuteFiberExplainer.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <div class="video-caption">
-              Overview of jute fiber dosage effects and performance trade-offs in concrete.
+              Presentation overview of the 2026 IEEE QPAIN conference paper on SUMO microsimulation and ML-based intersection CO<sub>2</sub> prediction.
             </div>
           </div>
         </div>
@@ -1201,25 +1172,29 @@
 
         <div class="video-pub-card">
           <div>
-            <div class="video-pub-title">Fiber Reinforced Self-Compacting Concrete Using Fly Ash and Ground Granulated Blast Furnace Slag</div>
+            <div class="video-pub-title">Sustainable Concrete Mix Optimization and Low-Carbon Binder Evaluation</div>
             <div class="video-pub-meta">
-              <strong>Venue:</strong> National Research Fair 2023 (Poster 98), CUET, Chattogram, Bangladesh
+              <strong>Forum:</strong> Academic &amp; Research Poster Showcase | <strong>Role:</strong> Presenter &amp; Co-Author
             </div>
             <div class="video-pub-summary">
-              T. Mahmud, L. Mostafa, <strong>E. Ahmed</strong>, and G. M. S. Islam. Investigated self-compacting concrete with 25% Fly Ash cement replacement, varying GGBFS (0–20%), and 0.1% volume polypropylene fibers, finding 15% GGBFS optimal for strength (39.4 MPa compressive and 4.8 MPa split tensile at 28 days), voids, and ductility.
+              Visual synthesis of supplementary cementitious material performance, early-age carbonation curing effects, and data-driven strength/emission trade-offs.
             </div>
+            <ul class="video-pub-bullets">
+              <li>Highlighted mechanical-durability balance and low-carbon binder strategies for structural applications.</li>
+              <li>Communicated experimental and analytical findings to faculty, peers, and industry reviewers.</li>
+            </ul>
             <div class="video-pub-keywords">
-              <strong>Key areas:</strong> Self-compacting concrete, fly ash, GGBFS, polypropylene fiber
+              <strong>Key areas:</strong> Low-carbon concrete, mix design optimization, research communication
             </div>
           </div>
 
           <div class="video-box">
             <video controls muted preload="metadata" playsinline class="video-media">
-              <source src="FRSCCExplainer.mp4" type="video/mp4">
+              <source src="PosterPresentationExplainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
             <div class="video-caption">
-              Summary of fly ash, GGBFS, and polypropylene fiber proportions in self-compacting concrete.
+              Walkthrough of poster presentation highlights covering sustainable concrete formulation and performance evaluation.
             </div>
           </div>
         </div>
@@ -1232,7 +1207,7 @@
           Training &amp; Experiences
         </h2>
 
-        <!-- Segment 1: Professional Experiences -->
+        <!-- Professional Experiences -->
         <h3 id="professional-experiences" class="subsection-title" style="margin-top: 0;">Professional Experiences</h3>
 
         <div class="entry-card entry-card-logo">
@@ -1243,155 +1218,97 @@
           <div>
             <div class="entry-header">
               <div class="entry-title">Lecturer, Department of Civil Engineering</div>
-              <div class="entry-date">01 Oct 2026 – Present</div>
+              <div class="entry-date">Oct 2026 – Present</div>
             </div>
-            <div class="entry-org">Chittagong University of Engineering &amp; Technology (CUET), Chattogram 4349</div>
+            <div class="entry-org">Chittagong University of Engineering &amp; Technology (CUET)</div>
             <ul class="entry-details">
-              <li>Deliver undergraduate-level lectures, laboratory guidance, and academic mentoring.</li>
+              <li>Conducting undergraduate courses, laboratory sessions, sessional grading, and academic mentoring in civil and structural engineering.</li>
             </ul>
           </div>
         </div>
 
         <div class="entry-card entry-card-logo">
           <div class="inst-logo-box">
-            <img src="Leading University.jpg" alt="Leading University Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="LU_Logo.png" alt="Leading University Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="inst-fallback" style="display:none;">LU</div>
           </div>
           <div>
             <div class="entry-header">
               <div class="entry-title">Lecturer, Department of Civil Engineering</div>
-              <div class="entry-date">05 Oct 2025 – 30 Sep 2026</div>
+              <div class="entry-date">Oct 2025 – Sep 2026</div>
             </div>
-            <div class="entry-org">Leading University (LU), Sylhet</div>
+            <div class="entry-org">Leading University, Sylhet</div>
             <ul class="entry-details">
-              <li>Taught core civil engineering courses and supported student coursework and lab sessions.</li>
+              <li>Taught undergraduate civil engineering courses and guided student laboratory, design, and research activities.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Segment 2: Training -->
+        <!-- Training -->
         <h3 id="training-section" class="subsection-title">Training</h3>
 
         <div class="entry-card entry-card-logo">
           <div class="inst-logo-box">
-            <img src="Leading University.jpg" alt="Leading University Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="inst-fallback" style="display:none;">LU</div>
+            <img src="ITN_BUET_Logo.png" alt="ITN-BUET Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="inst-fallback" style="display:none;">ITN</div>
           </div>
           <div>
             <div class="entry-header">
-              <div class="entry-title">Foundation Training Program (IQAC)</div>
-              <div class="entry-date">30 Jan 2026</div>
+              <div class="entry-title">Training on WASH and Water Supply / Sanitation Engineering</div>
+              <div class="entry-date">Training</div>
             </div>
-            <div class="entry-org">Leading University (LU), Sylhet</div>
+            <div class="entry-org">ITN-BUET</div>
             <ul class="entry-details">
-              <li>Completed faculty induction training organized by the Institutional Quality Assurance Cell (IQAC).</li>
+              <li>Completed technical training covering water supply, sanitation systems, and WASH engineering practices.</li>
             </ul>
           </div>
         </div>
 
         <div class="entry-card entry-card-logo">
           <div class="inst-logo-box">
-            <img src="ITN-BUET.png" alt="ITN-BUET Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="inst-fallback" style="display:none;">ITN-BUET</div>
-          </div>
-          <div>
-            <div class="entry-header">
-              <div class="entry-title">Sanitation for Urban Low-Income Communities</div>
-              <div class="entry-date">03–04 Aug 2025</div>
-            </div>
-            <div class="entry-org">Dept. of Civil Engineering, IRHES, CUET &amp; ITN-BUET</div>
-            <ul class="entry-details">
-              <li>Completed two-day training on sustainable sanitation, FSM, and urban low-income challenges.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="entry-card entry-card-logo">
-          <div class="inst-logo-box">
-            <img src="EDGE.jpg" alt="EDGE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="EDGE_Logo.png" alt="EDGE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="inst-fallback" style="display:none;">EDGE</div>
           </div>
           <div>
             <div class="entry-header">
-              <div class="entry-title">EDGE Training – ICT Division, Bangladesh</div>
-              <div class="entry-date">Jun – Oct 2024</div>
+              <div class="entry-title">Digital &amp; Technical Skills Training</div>
+              <div class="entry-date">Training</div>
             </div>
-            <div class="entry-org">Enhancing Digital Government and Economy Project</div>
+            <div class="entry-org">EDGE Program</div>
             <ul class="entry-details">
-              <li>Gained proficiency in ETABS, HEC-HMS, SewerGEMS, PLAXIS, and Microsoft Project.</li>
+              <li>Completed structured skill development training focused on modern engineering and computing tools.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Segment 3: Industrial Experiences -->
+        <!-- Industrial Experiences -->
         <h3 id="industrial-experiences" class="subsection-title">Industrial Experiences</h3>
 
         <div class="entry-card entry-card-logo">
           <div class="inst-logo-box">
-            <img src="Bangladesh_Water_Development_Board_logo.png" alt="Bangladesh Water Development Board (BWDB) Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="BWDB_Logo.png" alt="BWDB Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="inst-fallback" style="display:none;">BWDB</div>
           </div>
           <div>
             <div class="entry-header">
-              <div class="entry-title">Industrial Training – Bangladesh Water Development Board (BWDB)</div>
-              <div class="entry-date">Dec 2024</div>
+              <div class="entry-title">3-Week Industrial Attachment</div>
+              <div class="entry-date">Industrial Attachment</div>
             </div>
-            <div class="entry-org">Bangladesh Water Development Board, Dhaka</div>
+            <div class="entry-org">Bangladesh Water Development Board (BWDB)</div>
             <ul class="entry-details">
-              <li>Gained practical exposure to water resource management and civil infrastructure projects.</li>
-              <li>Developed an understanding of government procedures related to civil engineering works.</li>
-              <li>Prepared and presented a comprehensive report to the Head and Board of the Civil Engineering Department.</li>
+              <li>Observed water resources engineering, embankment and hydraulic structures, and field inspection workflows.</li>
             </ul>
           </div>
         </div>
 
-        <div class="entry-card entry-card-logo">
-          <div class="inst-logo-box">
-            <img src="industry.jpg" alt="Industrial Visits Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="inst-fallback" style="display:none;">VISIT</div>
-          </div>
-          <div>
-            <div class="entry-header">
-              <div class="entry-title">Industrial Visits</div>
-              <div class="entry-date">Academic Visits</div>
-            </div>
-            <div class="entry-org">Steel, Cement, Water &amp; Port Facilities</div>
-            <ul class="entry-details">
-              <li>AKS Steel Factory (AKS Group) and GPH Ispat.</li>
-              <li>Royal Cement Factory &amp; KSRM Steel Mill, Chattogram.</li>
-              <li>CWASA Sewage Treatment Plant and Chittagong Port Authority.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="entry-card entry-card-logo">
-          <div class="inst-logo-box">
-            <img src="CUET_Vector_Logo.svg" alt="CUET Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="inst-fallback" style="display:none;">CUET</div>
-          </div>
-          <div>
-            <div class="entry-header">
-              <div class="entry-title">Civil Engineering Field &amp; Laboratory Practice</div>
-              <div class="entry-date">Academic &amp; Lab Work</div>
-            </div>
-            <div class="entry-org">Department of Civil Engineering, CUET</div>
-            <ul class="entry-details">
-              <li>Hands-on experience with concrete mix design, fresh/hardened/durability testing (slump, compressive/split tensile strength, UPV, water absorption, permeable voids, RCPT), and phase characterization (TGA, FTIR).</li>
-              <li>Structural modeling and design workflows using ETABS and AutoCAD aligned with BNBC-2020.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Segment 4: Technical Skills -->
+        <!-- Technical Skills -->
         <h3 id="technical-skills" class="subsection-title">Technical Skills</h3>
 
         <div class="entry-card">
-          <div class="skill-row"><span class="skill-label">Structural Analysis &amp; Design:</span> ETABS, AutoCAD</div>
-          <div class="skill-row"><span class="skill-label">Programming Languages:</span> C++, Python</div>
-          <div class="skill-row"><span class="skill-label">Materials &amp; Characterization:</span> Concrete Mix Design, UPV, RCPT, SEM Analysis, TGA, FTIR</div>
-          <div class="skill-row"><span class="skill-label">Project Management &amp; Office:</span> Microsoft Project, MS Word, MS Excel, MS PowerPoint</div>
-          <div class="skill-row"><span class="skill-label">Research &amp; Visualization Tools:</span> Mendeley, SHAP, Manim</div>
-          <div class="skill-row"><span class="skill-label">Languages:</span> Fluent in Bangla and English</div>
+          <div class="skill-row"><span class="skill-label">Structural Analysis &amp; Design:</span> ETABS, AutoCAD, BNBC-2020 wind and seismic load evaluation</div>
+          <div class="skill-row"><span class="skill-label">Simulation &amp; Modeling:</span> SUMO traffic microsimulation, response spectrum analysis</div>
+          <div class="skill-row"><span class="skill-label">Data &amp; Programming:</span> Python, Machine Learning, SHAP interpretability, statistical analysis, MS Excel</div>
+          <div class="skill-row"><span class="skill-label">Laboratory &amp; Characterization:</span> Concrete mix design, UPV testing, water absorption/permeability, TGA &amp; FTIR interpretation</div>
         </div>
       </div>
 
@@ -1402,237 +1319,142 @@
           Awards &amp; Achievement
         </h2>
 
-        <!-- Unified Grid 1: Featured Awards & Certificates -->
         <div class="awards-3col-grid">
+          <!-- Card 1: Dean's Award -->
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="Deans Award.jpg" alt="Dean's Award Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>Deans Award.jpg</span></div>
+                <div class="award-media-placeholder">
+                  <i class="fa-solid fa-award"></i>
+                  <span>Dean's Award Honor</span>
+                </div>
               </div>
-              <div class="award-kicker">MERIT HONOUR</div>
-              <div class="award-card-title">Dean's Award</div>
-              <div class="award-card-org">Chittagong University of Engineering &amp; Technology</div>
-              <p class="award-card-desc">
-                Selected in the official merit list; Top 2 among 132 students in the department (CGPA 3.77 / 4.00 with Honours).
-              </p>
+              <div class="award-kicker">Academic Award</div>
+              <div class="award-card-title">Dean's Award (2nd in Department)</div>
+              <div class="award-card-org">Dept. of Civil Engineering, CUET</div>
+              <div class="award-card-desc">
+                Awarded for securing 2nd position among 132 students with Honours (CGPA 3.77 / 4.00) in B.Sc. in Civil Engineering.
+              </div>
             </div>
             <div class="award-card-footer">
-              <span class="award-meta-left">CUET</span>
-              <a href="Deans Award.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
+              <span class="award-meta-left">B.Sc. Honours</span>
             </div>
           </article>
 
+          <!-- Card 2: Case Study Competition -->
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="CIVIL XPLOSION.jpg" alt="1st Runner-up – Case Study Competition (2023) at CUET" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>CIVIL XPLOSION.jpg</span></div>
+                <img src="XPLOSION STAGED PIC.jpg" alt="2nd Place Case Study Competition" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;">
+                  <i class="fa-solid fa-trophy"></i>
+                  <span>Case Study Competition</span>
+                </div>
               </div>
-              <div class="award-kicker">1ST RUNNER-UP</div>
-              <div class="award-card-title">Case Study Competition</div>
-              <div class="award-card-org">Department of Civil Engineering, CUET</div>
-              <p class="award-card-desc">
-                "Sustainable Campus Expansion Proposal for CUET", organized by the Department of Civil Engineering, CUET-2023.
-              </p>
+              <div class="award-kicker">Competition</div>
+              <div class="award-card-title">2nd Place – Case Study Competition</div>
+              <div class="award-card-org">Dept. of Civil Engineering, CUET (2025)</div>
+              <div class="award-card-desc">
+                Secured 2nd place in the civil engineering case study competition organized at CUET.
+              </div>
             </div>
             <div class="award-card-footer">
-              <span class="award-meta-left">2023</span>
-              <a href="CIVIL XPLOSION.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
+              <span class="award-meta-left">2025</span>
+              <a href="XPLOSION STAGED PIC.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Photo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </article>
 
+          <!-- Card 3: EDGE Certificate -->
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="BESTSTUDENTAWARD.jpg" alt="Best Student Award" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>BESTSTUDENTAWARD.jpg</span></div>
+                <img src="EDGE CERTIFICATE.jpg" alt="EDGE Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;">
+                  <i class="fa-solid fa-certificate"></i>
+                  <span>EDGE Certificate</span>
+                </div>
               </div>
-              <div class="award-kicker">RECOGNITION</div>
-              <div class="award-card-title">Best Student Award</div>
-              <div class="award-card-org">Department of Narcotics Control &amp; Dept. of Civil Engineering, CUET</div>
-              <p class="award-card-desc">
-                Recognized by the Department of Narcotics Control and the Department of Civil Engineering.
-              </p>
-            </div>
-            <div class="award-card-footer">
-              <span class="award-meta-left">CUET</span>
-              <a href="BESTSTUDENTAWARD.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <!-- Unified Grid 2: Academic & National Event Recognitions (2023) -->
-        <h3 class="subsection-title">Academic &amp; National Event Recognitions (2023)</h3>
-        <div class="awards-3col-grid">
-          <article class="award-unified-card">
-            <div>
-              <div class="award-top-media-wrap">
-                <img src="Research fair.jpg" alt="Research Fair 2023 Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>Research fair.jpg</span></div>
-              </div>
-              <div class="award-kicker">POSTER PRESENTATION</div>
-              <div class="award-card-title">Research Fair Participant</div>
-              <div class="award-card-org">RESEARCH FAIR 2023, CUET</div>
-              <p class="award-card-desc">
-                Represented a poster at the "National Research Fair 2023", organized by CUET.
-              </p>
-            </div>
-            <div class="award-card-footer">
-              <span class="award-meta-left">2023</span>
-              <a href="Research fair.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="award-unified-card">
-            <div>
-              <div class="award-top-media-wrap">
-                <img src="National Concrerte Fest.jpg" alt="National Concrete Fest 2023 Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>National Concrerte Fest.jpg</span></div>
-              </div>
-              <div class="award-kicker">NATIONAL CONCRETE FEST</div>
-              <div class="award-card-title">Concrete Fest Participant</div>
-              <div class="award-card-org">ACI Student Chapter, CUET</div>
-              <p class="award-card-desc">
-                Participated in the "National Concrete Fest 2023", hosted by the ACI Student Chapter, CUET.
-              </p>
-            </div>
-            <div class="award-card-footer">
-              <span class="award-meta-left">2023</span>
-              <a href="National Concrerte Fest.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="award-unified-card">
-            <div>
-              <div class="award-top-media-wrap">
-                <img src="Mix Design Competition.jpg" alt="Mix Design Competition Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>Mix Design Competition.jpg</span></div>
-              </div>
-              <div class="award-kicker">24-HOUR MIX DESIGN</div>
-              <div class="award-card-title">Mix Design Competition Participant</div>
-              <div class="award-card-org">ACI Student Chapter, CUET</div>
-              <p class="award-card-desc">
-                Competed in the "24-hour Mix Design Competition", organized by the ACI Student Chapter, CUET.
-              </p>
-            </div>
-            <div class="award-card-footer">
-              <span class="award-meta-left">2023</span>
-              <a href="Mix Design Competition.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <!-- Unified Grid 3: Certificates -->
-        <h3 class="subsection-title">Certificates</h3>
-        <div class="awards-3col-grid">
-          <article class="award-unified-card">
-            <div>
-              <div class="award-top-media-wrap">
-                <img src="EDGE CERTIFICATE.jpg" alt="EDGE Training Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>EDGE CERTIFICATE.jpg</span></div>
-              </div>
-              <div class="award-kicker">TRAINING CERTIFICATE</div>
+              <div class="award-kicker">Certificate</div>
               <div class="award-card-title">EDGE Training Certificate</div>
-              <div class="award-card-org">EDGE Training – ICT Division, Bangladesh</div>
-              <p class="award-card-desc">
-                Completed training under Enhancing Digital Government and Economy (ETABS, HEC-HMS, SewerGEMS, PLAXIS, MS Project).
-              </p>
+              <div class="award-card-org">EDGE Program</div>
+              <div class="award-card-desc">
+                Certificate of completion for technical and digital skills training under the EDGE program.
+              </div>
             </div>
             <div class="award-card-footer">
-              <span class="award-meta-left">Jun – Oct 2024</span>
-              <a href="EDGE CERTIFICATE.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
+              <span class="award-meta-left">Verified</span>
+              <a href="EDGE CERTIFICATE.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </article>
 
+          <!-- Card 4: ITN Certificate -->
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="ITN CERTIFICATE.jpg" alt="ITN Training Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>ITN CERTIFICATE.jpg</span></div>
+                <img src="ITN CERTIFICATE.jpg" alt="ITN Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;">
+                  <i class="fa-solid fa-certificate"></i>
+                  <span>ITN Certificate</span>
+                </div>
               </div>
-              <div class="award-kicker">TRAINING CERTIFICATE</div>
-              <div class="award-card-title">ITN Training Certificate</div>
-              <div class="award-card-org">Dept. of Civil Engineering, IRHES, CUET &amp; ITN-BUET</div>
-              <p class="award-card-desc">
-                Completed training on "Sanitation for Urban Low-Income Communities" covering sustainable sanitation and FSM.
-              </p>
+              <div class="award-kicker">Certificate</div>
+              <div class="award-card-title">ITN-BUET Training Certificate</div>
+              <div class="award-card-org">ITN-BUET</div>
+              <div class="award-card-desc">
+                Certificate of completion for specialized training in WASH and water/sanitation engineering.
+              </div>
             </div>
             <div class="award-card-footer">
-              <span class="award-meta-left">Aug 2025</span>
-              <a href="ITN CERTIFICATE.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
+              <span class="award-meta-left">Verified</span>
+              <a href="ITN CERTIFICATE.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </article>
 
+          <!-- Card 5: ACI Member -->
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
                 <img src="ACI MEMBER.jpg" alt="ACI Member Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>ACI MEMBER.jpg</span></div>
+                <div class="award-media-placeholder" style="display:none;">
+                  <i class="fa-solid fa-id-badge"></i>
+                  <span>ACI Member</span>
+                </div>
               </div>
-              <div class="award-kicker">MEMBERSHIP CERTIFICATE</div>
-              <div class="award-card-title">ACI Member Certificate</div>
-              <div class="award-card-org">ACI Student Chapter, CUET</div>
-              <p class="award-card-desc">
-                Member certificate for participation and engagement with the American Concrete Institute (ACI) Student Chapter at CUET.
-              </p>
+              <div class="award-kicker">Membership</div>
+              <div class="award-card-title">American Concrete Institute (ACI) Member</div>
+              <div class="award-card-org">ACI Student / Technical Chapter</div>
+              <div class="award-card-desc">
+                Active engagement with concrete technology, mix design, and technical engineering activities.
+              </div>
             </div>
             <div class="award-card-footer">
-              <span class="award-meta-left">CUET</span>
-              <a href="ACI MEMBER.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
+              <span class="award-meta-left">ACI</span>
+              <a href="ACI MEMBER.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </article>
 
+          <!-- Card 6: IEEE Presenter -->
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="IEEE PRESENTER.jpg" alt="IEEE Conference Paper Presenter Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>IEEE PRESENTER.jpg</span></div>
+                <img src="IEEE PRESENTER.jpg" alt="IEEE Presenter Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;">
+                  <i class="fa-solid fa-scroll"></i>
+                  <span>IEEE Presenter</span>
+                </div>
               </div>
-              <div class="award-kicker">CONFERENCE PRESENTATION</div>
-              <div class="award-card-title">IEEE Conference Paper Presenter Certificate</div>
-              <div class="award-card-org">2026 IEEE QPAIN</div>
-              <p class="award-card-desc">
-                Presented conference research on ML-based CO<sub>2</sub> emission prediction at an urban intersection using SUMO microsimulation.
-              </p>
+              <div class="award-kicker">Conference</div>
+              <div class="award-card-title">IEEE Conference Paper Presenter</div>
+              <div class="award-card-org">IEEE QPAIN Conference</div>
+              <div class="award-card-desc">
+                Presented research work on SUMO microsimulation and machine learning CO<sub>2</sub> emission prediction.
+              </div>
             </div>
             <div class="award-card-footer">
               <span class="award-meta-left">2026</span>
-              <a href="IEEE PRESENTER.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
-                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
-              </a>
+              <a href="IEEE PRESENTER.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </article>
-        </div>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Scholarships</div>
-            <div class="entry-date">Academic &amp; Board</div>
-          </div>
-          <div class="entry-org">CUET &amp; Education Boards</div>
-          <ul class="entry-details">
-            <li>Academic Scholarships for all semesters of excellence.</li>
-            <li>Board Scholarships in JSC and SSC.</li>
-          </ul>
         </div>
       </div>
 
@@ -1645,251 +1467,254 @@
 
         <div class="entry-card">
           <div class="entry-header">
-            <div class="entry-title">Public Relations Secretary</div>
-            <div class="entry-date">2024 – 2025</div>
+            <div class="entry-title">Judge &amp; Poster Presentation Judge — LURS 3rd Student Research Conference 2026</div>
+            <div class="entry-date">2026</div>
           </div>
-          <div class="entry-org">Sylhet Students' Forum, CUET</div>
-        </div>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Volunteer</div>
-            <div class="entry-date">12–14 Dec 2024</div>
-          </div>
-          <div class="entry-org">ICACE 2024 (7th International Conference on Advances in Civil Engineering, CUET)</div>
-        </div>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Member (Former)</div>
-            <div class="entry-date">CUET</div>
-          </div>
-          <div class="entry-org">ACI &amp; ASCE Student Chapter</div>
-        </div>
-
-        <div class="entry-card">
-          <div class="entry-header">
-            <div class="entry-title">Trainer – Case Study Competition Session</div>
-            <div class="entry-date">Mar 2024</div>
-          </div>
-          <div class="entry-org">CUET ASCE Student Chapter</div>
+          <div class="entry-org">Leading University Research Society (LURS), Leading University</div>
           <ul class="entry-details">
-            <li>Conducted an online session for members, providing fundamental concepts and guidance for an upcoming case study competition.</li>
+            <li>Served as an evaluator and poster presentation judge for student research submissions at LURS 2026.</li>
           </ul>
         </div>
 
         <div class="entry-card">
           <div class="entry-header">
-            <div class="entry-title">Organizing Team Member</div>
-            <div class="entry-date">02–03 Jan 2026</div>
+            <div class="entry-title">American Concrete Institute (ACI) Student Chapter &amp; Technical Activities</div>
+            <div class="entry-date">Undergraduate</div>
           </div>
-          <div class="entry-org">Convocation 2026, Leading University, Sylhet</div>
+          <div class="entry-org">Department of Civil Engineering, CUET</div>
           <ul class="entry-details">
-            <li>Received official appreciation from the Registrar for contribution to event execution.</li>
+            <li>Participated in concrete mix design competitions, technical tours, and structural/material engineering events.</li>
           </ul>
         </div>
       </div>
 
-      <!-- 7. GALLERY -->
+      <!-- 7. GALLERY (3 PICTURES PER ROW, 1 CAPTION PER PHOTO) -->
       <div id="tab-gallery" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-regular fa-images"></i>
           Gallery
         </h2>
         <p class="gallery-note">
-          Gallery images have been removed. Upload or add new images when you are ready to display them here.
+          Selected milestones, academic events, site visits, and research moments arranged in a 3-column grid with one caption per photo.
         </p>
 
-        <div class="gallery-grid"></div>
+        <div class="gallery-grid">
+          <!-- 1 -->
+          <figure class="gallery-card">
+            <img src="CUET.png" alt="Appointed as a Lecturer on 1st October 2026" />
+            <figcaption class="gallery-caption">Appointed as a Lecturer on 1st October 2026</figcaption>
+          </figure>
+
+          <!-- 2 -->
+          <figure class="gallery-card">
+            <img src="SUPERVISOR.jpg" alt="With Our Supervisor Prof. Dr. Md. Moinul Islam" />
+            <figcaption class="gallery-caption">With Our Supervisor Prof. Dr. Md. Moinul Islam</figcaption>
+          </figure>
+
+          <!-- 3 -->
+          <figure class="gallery-card">
+            <img src="APPRECIATION FROM HALL.jpg" alt="Appreciation from Hall for Meritorious Result" />
+            <figcaption class="gallery-caption">Appreciation from Hall for Meritorious Result</figcaption>
+          </figure>
+
+          <!-- 4 -->
+          <figure class="gallery-card">
+            <img src="GRADUATION.jpg" alt="Officially a Graduate" />
+            <figcaption class="gallery-caption">Officially a Graduate</figcaption>
+          </figure>
+
+          <!-- 5 -->
+          <figure class="gallery-card">
+            <img src="DEFENDED.jpg" alt="Thesis Defense" />
+            <figcaption class="gallery-caption">Thesis Defense</figcaption>
+          </figure>
+
+          <!-- 6 -->
+          <figure class="gallery-card">
+            <img src="19 GRADUATION.jpg" alt="Graduation of 19 Batch" />
+            <figcaption class="gallery-caption">Graduation of 19 Batch</figcaption>
+          </figure>
+
+          <!-- 7 -->
+          <figure class="gallery-card">
+            <img src="IEEE PAPER.jpg" alt="Presented Our Paper at IEEE QPAIN Conference" />
+            <figcaption class="gallery-caption">Presented Our Paper at IEEE QPAIN Conference</figcaption>
+          </figure>
+
+          <!-- 8 -->
+          <figure class="gallery-card">
+            <img src="LU JOINING.jpeg" alt="Joined as a Lecturer at Leading University on 5th October 2025" />
+            <figcaption class="gallery-caption">Joined as a Lecturer at Leading University on 5th October 2025</figcaption>
+          </figure>
+
+          <!-- 9 -->
+          <figure class="gallery-card">
+            <img src="JUDGE.jpg" alt="Glad to Be Part of LURS 3rd Student Research Conference 2026, Leading University" />
+            <figcaption class="gallery-caption">Glad to Be Part of LURS 3rd Student Research Conference 2026, Leading University</figcaption>
+          </figure>
+
+          <!-- 10 -->
+          <figure class="gallery-card">
+            <img src="LU POSTER.jpeg" alt="To Serve as a Poster Presentation Judge at the LURS 3rd Student Research Conference 2026, Leading University" />
+            <figcaption class="gallery-caption">To Serve as a Poster Presentation Judge at the LURS 3rd Student Research Conference 2026, Leading University</figcaption>
+          </figure>
+
+          <!-- 11 -->
+          <figure class="gallery-card">
+            <img src="LU CONVOCATION.jpg" alt="4th Convocation Ceremony 2026, Leading University" />
+            <figcaption class="gallery-caption">4th Convocation Ceremony 2026, Leading University</figcaption>
+          </figure>
+
+          <!-- 12 -->
+          <figure class="gallery-card">
+            <img src="LU LAST DAY.jpg" alt="Left Job at Leading University on 30 September 2026" />
+            <figcaption class="gallery-caption">Left Job at Leading University on 30 September 2026</figcaption>
+          </figure>
+
+          <!-- 13 -->
+          <figure class="gallery-card">
+            <img src="ATTACHMENT.jpg" alt="3-Week Industrial Attachment at BWDB" />
+            <figcaption class="gallery-caption">3-Week Industrial Attachment at BWDB</figcaption>
+          </figure>
+
+          <!-- 14 -->
+          <figure class="gallery-card">
+            <img src="XPLOSION STAGED PIC.jpg" alt="2nd Place – Case Study Competition, Department of Civil Engineering, CUET (2025)" />
+            <figcaption class="gallery-caption">2nd Place – Case Study Competition, Department of Civil Engineering, CUET (2025)</figcaption>
+          </figure>
+
+          <!-- 15 -->
+          <figure class="gallery-card">
+            <img src="AKS FIELD VISIT.jpg" alt="3-Day-Long Trip to AKS" />
+            <figcaption class="gallery-caption">3-Day-Long Trip to AKS</figcaption>
+          </figure>
+
+          <!-- 16 -->
+          <figure class="gallery-card">
+            <img src="MIX DESIGN.jpg" alt="24 Hour Mix Design Competition" />
+            <figcaption class="gallery-caption">24 Hour Mix Design Competition</figcaption>
+          </figure>
+
+          <!-- 17 -->
+          <figure class="gallery-card">
+            <img src="GPH.jpg" alt="A Visit to GPH Ispat Ltd" />
+            <figcaption class="gallery-caption">A Visit to GPH Ispat Ltd</figcaption>
+          </figure>
+
+          <!-- 18 -->
+          <figure class="gallery-card">
+            <img src="CWASA VISIT.jpg" alt="A Visit to CWASA's Sewage Treatment Plant Project in Chittagong" />
+            <figcaption class="gallery-caption">A Visit to CWASA's Sewage Treatment Plant Project in Chittagong</figcaption>
+          </figure>
+
+          <!-- 19 -->
+          <figure class="gallery-card">
+            <img src="ACI TECH TOUR.jpg" alt="ACI Technical Tour 2023" />
+            <figcaption class="gallery-caption">ACI Technical Tour 2023</figcaption>
+          </figure>
+
+          <!-- 20 -->
+          <figure class="gallery-card">
+            <img src="CTG PORT.jpg" alt="A Visit to Chittagong Port Authority" />
+            <figcaption class="gallery-caption">A Visit to Chittagong Port Authority</figcaption>
+          </figure>
+
+          <!-- 21 -->
+          <figure class="gallery-card">
+            <img src="MIRSARAI EMBANKMENT.jpeg" alt="Visit to Mirsarai Embankment" />
+            <figcaption class="gallery-caption">Visit to Mirsarai Embankment</figcaption>
+          </figure>
+
+          <!-- 22 -->
+          <figure class="gallery-card">
+            <img src="SURVEY.jpg" alt="Practical Surveying under CE 102" />
+            <figcaption class="gallery-caption">Practical Surveying under CE 102</figcaption>
+          </figure>
+        </div>
       </div>
 
     </section>
   </main>
 
   <script>
-    const STORAGE_KEY = 'emad_portfolio_state_v1';
-    const THEME_KEY = 'emad_portfolio_theme_v1';
-    const tabLinks = document.querySelectorAll('[data-tab]');
-    const tabPanels = document.querySelectorAll('.tab-panel');
-    const navLinks = document.querySelectorAll('header nav > a.tab-link, header nav .nav-dropdown > a.tab-link');
-    const allVideos = document.querySelectorAll('.video-media');
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    const themeToggleIcon = document.getElementById('themeToggleIcon');
-    const themeToggleText = document.getElementById('themeToggleText');
+    (function () {
+      const themeBtn = document.getElementById('themeToggleBtn');
+      const themeIcon = document.getElementById('themeToggleIcon');
+      const themeText = document.getElementById('themeToggleText');
 
-    function applyTheme(theme) {
-      const isLight = theme === 'light';
-      document.body.classList.toggle('light-mode', isLight);
-      if (themeToggleBtn) {
-        themeToggleBtn.setAttribute('aria-pressed', String(isLight));
-      }
-      if (themeToggleIcon) {
-        themeToggleIcon.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-      }
-      if (themeToggleText) {
-        themeToggleText.textContent = isLight ? 'Dark Mode' : 'Light Mode';
-      }
-    }
-
-    function getSavedTheme() {
-      try {
-        const sessionTheme = sessionStorage.getItem(THEME_KEY);
-        if (sessionTheme === 'light' || sessionTheme === 'dark') {
-          return sessionTheme;
+      function applyTheme(isLight) {
+        document.body.classList.toggle('light-mode', isLight);
+        themeBtn.setAttribute('aria-pressed', String(isLight));
+        if (isLight) {
+          themeIcon.className = 'fa-solid fa-moon';
+          themeText.textContent = 'Dark Mode';
+        } else {
+          themeIcon.className = 'fa-solid fa-sun';
+          themeText.textContent = 'Light Mode';
         }
-      } catch (err) {}
-      try {
-        const localTheme = localStorage.getItem(THEME_KEY);
-        if (localTheme === 'light' || localTheme === 'dark') {
-          return localTheme;
-        }
-      } catch (err) {}
-      return 'dark';
-    }
+      }
 
-    function saveTheme(theme) {
-      try {
-        sessionStorage.setItem(THEME_KEY, theme);
-      } catch (err) {}
-      try {
-        localStorage.setItem(THEME_KEY, theme);
-      } catch (err) {}
-    }
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      applyTheme(savedTheme === 'light');
 
-    applyTheme(getSavedTheme());
-
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
-        const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
-        applyTheme(nextTheme);
-        saveTheme(nextTheme);
+      themeBtn.addEventListener('click', function () {
+        const nextIsLight = !document.body.classList.contains('light-mode');
+        localStorage.setItem('portfolio-theme', nextIsLight ? 'light' : 'dark');
+        applyTheme(nextIsLight);
       });
-    }
 
-    const videoObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-            video.muted = true;
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-              playPromise.catch(() => {});
+      const tabPanels = document.querySelectorAll('.tab-panel');
+      const navTabLinks = document.querySelectorAll('nav .tab-link');
+      const allTabTriggers = document.querySelectorAll('[data-tab]');
+
+      function activateTab(tabName, targetId) {
+        if (!tabName) return;
+
+        tabPanels.forEach(panel => {
+          panel.classList.toggle('active', panel.id === 'tab-' + tabName);
+        });
+
+        navTabLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('data-tab') === tabName);
+        });
+
+        if (targetId) {
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            setTimeout(() => {
+              targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 40);
+          }
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      allTabTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function (e) {
+          const tabName = this.getAttribute('data-tab');
+          const targetId = this.getAttribute('data-target');
+          if (tabName) {
+            e.preventDefault();
+            activateTab(tabName, targetId);
+            if (window.history && window.history.replaceState) {
+              window.history.replaceState(null, '', '#' + (targetId || tabName));
             }
-          } else if (!video.paused) {
-            video.pause();
           }
         });
-      },
-      { threshold: [0, 0.4] }
-    );
-
-    allVideos.forEach((video) => {
-      video.muted = true;
-      videoObserver.observe(video);
-    });
-
-    function refreshTabVideos(panel) {
-      panel.querySelectorAll('.video-media').forEach((video) => {
-        video.muted = true;
-        videoObserver.unobserve(video);
-        videoObserver.observe(video);
-      });
-    }
-
-    function saveNavigationState(tabName, targetId) {
-      const state = { tab: tabName, target: targetId || '' };
-      try {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      } catch (err) {}
-
-      const nextHash = targetId ? `#${tabName}/${targetId}` : `#${tabName}`;
-      if (window.location.hash !== nextHash) {
-        history.replaceState(null, '', nextHash);
-      }
-    }
-
-    function activateTab(tabName, targetId, options = {}) {
-      const { scroll = true, persist = true } = options;
-      const panelId = 'tab-' + tabName;
-      const targetPanel = document.getElementById(panelId) || document.getElementById('tab-home');
-      const resolvedTab = targetPanel.id.replace('tab-', '');
-      if (!targetPanel) return;
-
-      tabPanels.forEach(panel => {
-        if (panel !== targetPanel) {
-          panel.querySelectorAll('.video-media').forEach((v) => {
-            if (!v.paused) v.pause();
-          });
-        }
-        panel.classList.remove('active');
       });
 
-      targetPanel.classList.add('active');
-
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('data-tab') === resolvedTab);
-      });
-
-      if (persist) {
-        saveNavigationState(resolvedTab, targetId);
-      }
-
-      refreshTabVideos(targetPanel);
-
-      if (scroll) {
-        if (targetId) {
-          const el = document.getElementById(targetId);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            return;
-          }
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
-
-    function getSavedNavigationState() {
-      const rawHash = (window.location.hash || '').replace(/^#/, '');
-      if (rawHash) {
-        const [hashTab, hashTarget] = rawHash.split('/');
-        if (document.getElementById('tab-' + hashTab)) {
-          return { tab: hashTab, target: hashTarget || '' };
+      const initialHash = (window.location.hash || '').replace('#', '');
+      if (initialHash) {
+        const matchingTarget = document.getElementById(initialHash);
+        if (matchingTarget && matchingTarget.closest('.tab-panel')) {
+          const parentTabId = matchingTarget.closest('.tab-panel').id.replace('tab-', '');
+          activateTab(parentTabId, initialHash);
+        } else if (document.getElementById('tab-' + initialHash)) {
+          activateTab(initialHash);
         }
       }
-
-      try {
-        const saved = sessionStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          if (parsed && parsed.tab && document.getElementById('tab-' + parsed.tab)) {
-            return { tab: parsed.tab, target: parsed.target || '' };
-          }
-        }
-      } catch (err) {}
-
-      return { tab: 'home', target: '' };
-    }
-
-    tabLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const tabName = link.getAttribute('data-tab');
-        if (!tabName) return;
-        e.preventDefault();
-        const targetId = link.getAttribute('data-target') || '';
-        activateTab(tabName, targetId, { scroll: true, persist: true });
-      });
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const initial = getSavedNavigationState();
-      activateTab(initial.tab, initial.target, { scroll: Boolean(initial.target), persist: true });
-    });
-
-    window.addEventListener('hashchange', () => {
-      const next = getSavedNavigationState();
-      activateTab(next.tab, next.target, { scroll: Boolean(next.target), persist: false });
-    });
+    })();
   </script>
 </body>
 </html>
