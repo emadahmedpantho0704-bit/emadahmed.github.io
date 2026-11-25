@@ -804,6 +804,22 @@
       display: block;
     }
 
+    .gallery-pair {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      width: 100%;
+      height: 240px;
+    }
+
+    .gallery-pair img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+    }
+
     .gallery-caption {
       padding: 0.75rem 0.5rem 0.25rem;
       font-size: 0.88rem;
@@ -1614,7 +1630,10 @@
         <div class="gallery-grid">
           <!-- 1 -->
           <figure class="gallery-card">
-            <img src="CUET.png" alt="Appointed as a Lecturer on 1st October 2026" />
+            <div class="gallery-pair">
+              <img src="CUET.png" alt="Appointed as a Lecturer on 1st October 2026" />
+              <img src="ce.png" alt="Appointed as a Lecturer on 1st October 2026 - Civil Engineering" />
+            </div>
             <figcaption class="gallery-caption">Appointed as a Lecturer on 1st October 2026</figcaption>
           </figure>
 
