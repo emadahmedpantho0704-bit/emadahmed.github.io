@@ -552,15 +552,44 @@
       border-color: var(--accent-blue);
     }
 
-    .award-top-media {
+    .award-top-media-wrap {
+      position: relative;
       width: 100%;
       height: 168px;
-      object-fit: cover;
       border-radius: 8px;
       border: 1px solid var(--border-subtle);
       background: var(--bg-media-shell);
-      display: block;
+      overflow: hidden;
       margin-bottom: 0.85rem;
+    }
+
+    .award-top-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .award-media-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .award-media-placeholder i {
+      color: var(--accent-blue);
+      font-size: 1.35rem;
     }
 
     .award-kicker {
@@ -1377,7 +1406,10 @@
         <div class="awards-3col-grid">
           <article class="award-unified-card">
             <div>
-              <img src="Deans Award.jpg" alt="Dean's Award Certificate" class="award-top-media" />
+              <div class="award-top-media-wrap">
+                <img src="Deans Award.jpg" alt="Dean's Award Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>Deans Award.jpg</span></div>
+              </div>
               <div class="award-kicker">MERIT HONOUR</div>
               <div class="award-card-title">Dean's Award</div>
               <div class="award-card-org">Chittagong University of Engineering &amp; Technology</div>
@@ -1395,7 +1427,10 @@
 
           <article class="award-unified-card">
             <div>
-              <img src="CIVIL XPLOSION.jpg" alt="1st Runner-up – Case Study Competition (2023) at CUET" class="award-top-media" />
+              <div class="award-top-media-wrap">
+                <img src="CIVIL XPLOSION.jpg" alt="1st Runner-up – Case Study Competition (2023) at CUET" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>CIVIL XPLOSION.jpg</span></div>
+              </div>
               <div class="award-kicker">1ST RUNNER-UP</div>
               <div class="award-card-title">Case Study Competition</div>
               <div class="award-card-org">Department of Civil Engineering, CUET</div>
@@ -1413,7 +1448,10 @@
 
           <article class="award-unified-card">
             <div>
-              <img src="BESTSTUDENTAWARD.jpg" alt="Best Student Award" class="award-top-media" />
+              <div class="award-top-media-wrap">
+                <img src="BESTSTUDENTAWARD.jpg" alt="Best Student Award" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>BESTSTUDENTAWARD.jpg</span></div>
+              </div>
               <div class="award-kicker">RECOGNITION</div>
               <div class="award-card-title">Best Student Award</div>
               <div class="award-card-org">Department of Narcotics Control &amp; Dept. of Civil Engineering, CUET</div>
@@ -1435,7 +1473,10 @@
         <div class="awards-3col-grid">
           <article class="award-unified-card">
             <div>
-              <img src="Research fair.jpg" alt="Research Fair 2023 Certificate" class="award-top-media" />
+              <div class="award-top-media-wrap">
+                <img src="Research fair.jpg" alt="Research Fair 2023 Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>Research fair.jpg</span></div>
+              </div>
               <div class="award-kicker">POSTER PRESENTATION</div>
               <div class="award-card-title">Research Fair Participant</div>
               <div class="award-card-org">RESEARCH FAIR 2023, CUET</div>
@@ -1453,7 +1494,10 @@
 
           <article class="award-unified-card">
             <div>
-              <img src="National Concrerte Fest.jpg" alt="National Concrete Fest 2023 Certificate" class="award-top-media" />
+              <div class="award-top-media-wrap">
+                <img src="National Concrerte Fest.jpg" alt="National Concrete Fest 2023 Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>National Concrerte Fest.jpg</span></div>
+              </div>
               <div class="award-kicker">NATIONAL CONCRETE FEST</div>
               <div class="award-card-title">Concrete Fest Participant</div>
               <div class="award-card-org">ACI Student Chapter, CUET</div>
@@ -1471,7 +1515,10 @@
 
           <article class="award-unified-card">
             <div>
-              <img src="Mix Design Competition.jpg" alt="Mix Design Competition Certificate" class="award-top-media" />
+              <div class="award-top-media-wrap">
+                <img src="Mix Design Competition.jpg" alt="Mix Design Competition Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>Mix Design Competition.jpg</span></div>
+              </div>
               <div class="award-kicker">24-HOUR MIX DESIGN</div>
               <div class="award-card-title">Mix Design Competition Participant</div>
               <div class="award-card-org">ACI Student Chapter, CUET</div>
@@ -1482,6 +1529,94 @@
             <div class="award-card-footer">
               <span class="award-meta-left">2023</span>
               <a href="Mix Design Competition.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
+                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Unified Grid 3: Certificates -->
+        <h3 class="subsection-title">Certificates</h3>
+        <div class="awards-3col-grid">
+          <article class="award-unified-card">
+            <div>
+              <div class="award-top-media-wrap">
+                <img src="EDGE CERTIFICATE.jpg" alt="EDGE Training Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>EDGE CERTIFICATE.jpg</span></div>
+              </div>
+              <div class="award-kicker">TRAINING CERTIFICATE</div>
+              <div class="award-card-title">EDGE Training Certificate</div>
+              <div class="award-card-org">EDGE Training – ICT Division, Bangladesh</div>
+              <p class="award-card-desc">
+                Completed training under Enhancing Digital Government and Economy (ETABS, HEC-HMS, SewerGEMS, PLAXIS, MS Project).
+              </p>
+            </div>
+            <div class="award-card-footer">
+              <span class="award-meta-left">Jun – Oct 2024</span>
+              <a href="EDGE CERTIFICATE.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
+                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-unified-card">
+            <div>
+              <div class="award-top-media-wrap">
+                <img src="ITN CERTIFICATE.jpg" alt="ITN Training Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>ITN CERTIFICATE.jpg</span></div>
+              </div>
+              <div class="award-kicker">TRAINING CERTIFICATE</div>
+              <div class="award-card-title">ITN Training Certificate</div>
+              <div class="award-card-org">Dept. of Civil Engineering, IRHES, CUET &amp; ITN-BUET</div>
+              <p class="award-card-desc">
+                Completed training on "Sanitation for Urban Low-Income Communities" covering sustainable sanitation and FSM.
+              </p>
+            </div>
+            <div class="award-card-footer">
+              <span class="award-meta-left">Aug 2025</span>
+              <a href="ITN CERTIFICATE.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
+                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-unified-card">
+            <div>
+              <div class="award-top-media-wrap">
+                <img src="ACI MEMBER.jpg" alt="ACI Member Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>ACI MEMBER.jpg</span></div>
+              </div>
+              <div class="award-kicker">MEMBERSHIP CERTIFICATE</div>
+              <div class="award-card-title">ACI Member Certificate</div>
+              <div class="award-card-org">ACI Student Chapter, CUET</div>
+              <p class="award-card-desc">
+                Member certificate for participation and engagement with the American Concrete Institute (ACI) Student Chapter at CUET.
+              </p>
+            </div>
+            <div class="award-card-footer">
+              <span class="award-meta-left">CUET</span>
+              <a href="ACI MEMBER.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
+                View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-unified-card">
+            <div>
+              <div class="award-top-media-wrap">
+                <img src="IEEE PRESENTER.jpg" alt="IEEE Conference Paper Presenter Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="award-media-placeholder" style="display:none;"><i class="fa-solid fa-certificate"></i><span>IEEE PRESENTER.jpg</span></div>
+              </div>
+              <div class="award-kicker">CONFERENCE PRESENTATION</div>
+              <div class="award-card-title">IEEE Conference Paper Presenter Certificate</div>
+              <div class="award-card-org">2026 IEEE QPAIN</div>
+              <p class="award-card-desc">
+                Presented conference research on ML-based CO<sub>2</sub> emission prediction at an urban intersection using SUMO microsimulation.
+              </p>
+            </div>
+            <div class="award-card-footer">
+              <span class="award-meta-left">2026</span>
+              <a href="IEEE PRESENTER.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">
                 View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem;"></i>
               </a>
             </div>
@@ -1562,34 +1697,10 @@
           Gallery
         </h2>
         <p class="gallery-note">
-          Place image files in your repository root alongside <code>index.html</code> so they render on GitHub Pages.
+          Gallery images have been removed. Upload or add new images when you are ready to display them here.
         </p>
 
-        <div class="gallery-grid">
-          <div class="gallery-card">
-            <img src="IMG_0111.jpg" alt="Emad Ahmed portrait" />
-            <div class="gallery-caption">
-              <div class="gallery-title">Academic Profile</div>
-              <div class="gallery-meta">Dept. of Civil Engineering, CUET</div>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <img src="CIVIL XPLOSION.jpg" alt="1st Runner-up – Case Study Competition (2023) at CUET" />
-            <div class="gallery-caption">
-              <div class="gallery-title">1st Runner-up – Case Study Competition</div>
-              <div class="gallery-meta">Sustainable Campus Expansion Proposal, CUET (2023)</div>
-            </div>
-          </div>
-
-          <div class="gallery-card">
-            <img src="poster_research_fair_2023.jpg" alt="Research Fair 2023 poster presentation" />
-            <div class="gallery-caption">
-              <div class="gallery-title">National Research Fair 2023</div>
-              <div class="gallery-meta">FRSCC with Fly Ash &amp; GGBFS (Poster 98)</div>
-            </div>
-          </div>
-        </div>
+        <div class="gallery-grid"></div>
       </div>
 
     </section>
