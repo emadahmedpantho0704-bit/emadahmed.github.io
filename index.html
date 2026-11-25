@@ -765,7 +765,7 @@
       line-height: 1.45;
     }
 
-    /* Gallery 3-Column Grid (3 Pictures Per Row, 1 Caption Per Photo) */
+    /* Gallery 2-Column Grid (2 Pictures Per Row, Full Frame Visible, 1 Caption Per Photo) */
     .gallery-note {
       color: var(--text-muted);
       font-size: 0.9rem;
@@ -774,8 +774,8 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.35rem;
       align-items: stretch;
     }
 
@@ -797,8 +797,9 @@
 
     .gallery-card img {
       width: 100%;
-      height: 195px;
-      object-fit: cover;
+      height: 260px;
+      object-fit: contain;
+      background: var(--bg-media-shell);
       display: block;
     }
 
@@ -830,6 +831,10 @@
         grid-template-columns: 1fr;
       }
 
+      .gallery-card img {
+        height: 220px;
+      }
+
       .entry-card-logo {
         grid-template-columns: 48px 1fr;
         gap: 0.9rem;
@@ -842,7 +847,6 @@
     }
 
     @media (min-width: 581px) and (max-width: 850px) {
-      .gallery-grid,
       .awards-3col-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1235,17 +1239,17 @@
           <div>
             <div class="video-pub-title">FIBER REINFORCED SELF-COMPACTING CONCRETE USING FLY ASH AND GROUND GRANULATED BLAST FURNACE SLAG</div>
             <div class="video-pub-meta">
-              <strong>Poster ID:</strong> 98 | <strong>Authors:</strong> Tahsin Mahmud, Labiba Mostafa, Emad Ahmed, Prof. Dr. G. M. Sadiqul Islam | <strong>Affiliation:</strong> Department of Civil Engineering, CUET | <strong>Venue:</strong> Research Fair 2023, CUET, Chattogram-4349, Bangladesh (28 Aug 2023)[cite: 2]
+              <strong>Poster ID:</strong> 98 | <strong>Authors:</strong> Tahsin Mahmud, Labiba Mostafa, Emad Ahmed, Prof. Dr. G. M. Sadiqul Islam | <strong>Affiliation:</strong> Department of Civil Engineering, CUET | <strong>Venue:</strong> Research Fair 2023, CUET, Chattogram-4349, Bangladesh (28 Aug 2023)
             </div>
             <div class="video-pub-summary">
-              Develops an eco-friendly GGBS and fly ash-based self-compacting concrete (SCC) incorporating polypropylene (PP) fibers (0.1% by volume, 2.35 kg/m³) at a fixed w/b ratio of 0.34, 25% CEM I replacement by fly ash, HRWRA (1.5%, 9.3 kg/m³), and VMA (0.65%, 4.1 kg/m³), varying CEM I replacement by GGBS across four FRSCC mixes (G 0: 0%, G 10: 10%, G 15: 15%, G 20: 20%) versus a conventional SCC Control Mix[cite: 2].
+              Develops an eco-friendly GGBS and fly ash-based self-compacting concrete (SCC) incorporating polypropylene (PP) fibers (0.1% by volume, 2.35 kg/m³) at a fixed w/b ratio of 0.34, 25% CEM I replacement by fly ash, HRWRA (1.5%, 9.3 kg/m³), and VMA (0.65%, 4.1 kg/m³), varying CEM I replacement by GGBS across four FRSCC mixes (G 0: 0%, G 10: 10%, G 15: 15%, G 20: 20%) versus a conventional SCC Control Mix.
             </div>
             <ul class="video-pub-bullets">
-              <li>All trial mixtures satisfied EFNARC 2005 and ACI 237R fresh property criteria (slump flow, T500, V-funnel, and J-ring), with 15% GGBS + 25% fly ash (40% total CEM I replacement) achieving the highest 28-day compressive strength (39.4 MPa) and split tensile strength (4.8 MPa) alongside balanced production cost[cite: 2].</li>
-              <li>Water absorption and volume of permeable voids (VPV) improved up to 15% GGBS replacement (remaining below 5% and 11%, respectively), while PP fibers prevented direct spalling in compression and provided warning prior to ultimate tension failure[cite: 2].</li>
+              <li>All trial mixtures satisfied EFNARC 2005 and ACI 237R fresh property criteria (slump flow, T500, V-funnel, and J-ring), with 15% GGBS + 25% fly ash (40% total CEM I replacement) achieving the highest 28-day compressive strength (39.4 MPa) and split tensile strength (4.8 MPa) alongside balanced production cost.</li>
+              <li>Water absorption and volume of permeable voids (VPV) improved up to 15% GGBS replacement (remaining below 5% and 11%, respectively), while PP fibers prevented direct spalling in compression and provided warning prior to ultimate tension failure.</li>
             </ul>
             <div class="video-pub-keywords">
-              <strong>Key areas:</strong> Fiber-reinforced SCC, GGBS, fly ash, polypropylene fiber, EFNARC 2005, ACI 237R, Research Fair 2023[cite: 2]
+              <strong>Key areas:</strong> Fiber-reinforced SCC, GGBS, fly ash, polypropylene fiber, EFNARC 2005, ACI 237R, Research Fair 2023
             </div>
           </div>
 
@@ -1255,7 +1259,7 @@
               Your browser does not support the video tag.
             </video>
             <div class="video-caption">
-              Walkthrough of Poster ID 98 on fiber-reinforced self-compacting concrete using fly ash and ground granulated blast furnace slag[cite: 2].
+              Walkthrough of Poster ID 98 on fiber-reinforced self-compacting concrete using fly ash and ground granulated blast furnace slag.
             </div>
           </div>
         </div>
@@ -1586,14 +1590,14 @@
         </div>
       </div>
 
-      <!-- 7. GALLERY (3 PICTURES PER ROW, 1 CAPTION PER PHOTO) -->
+      <!-- 7. GALLERY (2 PICTURES PER ROW, FULL FRAME VISIBLE, 1 CAPTION PER PHOTO) -->
       <div id="tab-gallery" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-regular fa-images"></i>
           Gallery
         </h2>
         <p class="gallery-note">
-          Selected milestones, academic events, site visits, and research moments arranged in a 3-column grid with one caption per photo.
+          Selected milestones, academic events, site visits, and research moments arranged in a 2-column grid so the full frame of each photo stays visible with one caption per photo.
         </p>
 
         <div class="gallery-grid">
