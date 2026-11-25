@@ -1345,11 +1345,7 @@
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="XPLOSION STAGED PIC.jpg" alt="2nd Place Case Study Competition" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;">
-                  <i class="fa-solid fa-trophy"></i>
-                  <span>Case Study Competition</span>
-                </div>
+                <img src="XPLOSION STAGED PIC.jpg" alt="2nd Place Case Study Competition" class="award-top-media" />
               </div>
               <div class="award-kicker">Competition</div>
               <div class="award-card-title">2nd Place – Case Study Competition</div>
@@ -1368,11 +1364,7 @@
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="EDGE CERTIFICATE.jpg" alt="EDGE Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;">
-                  <i class="fa-solid fa-certificate"></i>
-                  <span>EDGE Certificate</span>
-                </div>
+                <img src="EDGE CERTIFICATE.jpg" alt="EDGE Certificate" class="award-top-media" />
               </div>
               <div class="award-kicker">Certificate</div>
               <div class="award-card-title">EDGE Training Certificate</div>
@@ -1391,11 +1383,7 @@
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="ITN CERTIFICATE.jpg" alt="ITN Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;">
-                  <i class="fa-solid fa-certificate"></i>
-                  <span>ITN Certificate</span>
-                </div>
+                <img src="ITN CERTIFICATE.jpg" alt="ITN Certificate" class="award-top-media" />
               </div>
               <div class="award-kicker">Certificate</div>
               <div class="award-card-title">ITN-BUET Training Certificate</div>
@@ -1414,11 +1402,7 @@
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="ACI MEMBER.jpg" alt="ACI Member Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;">
-                  <i class="fa-solid fa-id-badge"></i>
-                  <span>ACI Member</span>
-                </div>
+                <img src="ACI MEMBER.jpg" alt="ACI Member Certificate" class="award-top-media" />
               </div>
               <div class="award-kicker">Membership</div>
               <div class="award-card-title">American Concrete Institute (ACI) Member</div>
@@ -1437,11 +1421,7 @@
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="IEEE PRESENTER.jpg" alt="IEEE Presenter Certificate" class="award-top-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="award-media-placeholder" style="display:none;">
-                  <i class="fa-solid fa-scroll"></i>
-                  <span>IEEE Presenter</span>
-                </div>
+                <img src="IEEE PRESENTER.jpg" alt="IEEE Presenter Certificate" class="award-top-media" />
               </div>
               <div class="award-kicker">Conference</div>
               <div class="award-card-title">IEEE Conference Paper Presenter</div>
@@ -1714,6 +1694,28 @@
           activateTab(initialHash);
         }
       }
+
+      // Automatic fallback for mismatched file extensions (.jpg / .jpeg / .JPG / .JPEG / .png / .PNG)
+      document.querySelectorAll('.gallery-card img, .award-top-media, .profile-pic').forEach(img => {
+        const origSrc = img.getAttribute('src');
+        if (!origSrc) return;
+        const base = origSrc.replace(/\.[^/.]+$/, '');
+        const origExt = (origSrc.match(/\.[^/.]+$/) || [''])[0];
+        const exts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG'].filter(ext => ext !== origExt);
+        let idx = 0;
+
+        img.addEventListener('error', function () {
+          if (idx < exts.length) {
+            const nextSrc = base + exts[idx];
+            idx++;
+            this.src = nextSrc;
+            const cardLink = this.closest('.award-unified-card')?.querySelector('.award-view-link');
+            if (cardLink) {
+              cardLink.setAttribute('href', nextSrc);
+            }
+          }
+        });
+      });
     })();
   </script>
 </body>
