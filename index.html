@@ -1064,7 +1064,7 @@
         </div>
       </div>
 
-      <!-- 3. RESEARCH & PUBLICATION (TWO-COLUMN: LEFT TEXT + RIGHT VIDEO) -->
+      <!-- 3. RESEARCH & PUBLICATION (TWO-COLUMN: LEFT TEXT + RIGHT AUTOPLAY VIDEO ON SCROLL) -->
       <div id="tab-research-publication" class="tab-panel">
         <h2 class="section-title">
           <i class="fa-solid fa-flask"></i>
@@ -1093,7 +1093,7 @@
           </div>
 
           <div class="video-box">
-            <video controls muted preload="metadata" playsinline class="video-media">
+            <video controls muted loop preload="auto" playsinline class="video-media research-scroll-video">
               <source src="MSCSeismicExplainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1125,7 +1125,7 @@
           </div>
 
           <div class="video-box">
-            <video controls muted preload="metadata" playsinline class="video-media">
+            <video controls muted loop preload="auto" playsinline class="video-media research-scroll-video">
               <source src="ZeoliteThesisExplainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1157,7 +1157,7 @@
           </div>
 
           <div class="video-box">
-            <video controls muted preload="metadata" playsinline class="video-media">
+            <video controls muted loop preload="auto" playsinline class="video-media research-scroll-video">
               <source src="QPAIN_Explainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1189,7 +1189,7 @@
           </div>
 
           <div class="video-box">
-            <video controls muted preload="metadata" playsinline class="video-media">
+            <video controls muted loop preload="auto" playsinline class="video-media research-scroll-video">
               <source src="PosterPresentationExplainer.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1646,6 +1646,59 @@
       const tabPanels = document.querySelectorAll('.tab-panel');
       const navTabLinks = document.querySelectorAll('nav .tab-link');
       const allTabTriggers = document.querySelectorAll('[data-tab]');
+      const researchVideos = document.querySelectorAll('.research-scroll-video');
+
+      // Play research video automatically whenever scrolled into view; pause when scrolled away
+      const videoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            const parentPanel = video.closest('.tab-panel');
+            const isTabVisible = parentPanel && parentPanel.classList.contains('active');
+
+            if (entry.isIntersecting && isTabVisible) {
+              video.muted = true;
+              const playPromise = video.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(() => {});
+              }
+            } else {
+              video.pause();
+            }
+          });
+        },
+        {
+          threshold: 0.45
+        }
+      );
+
+      researchVideos.forEach((video) => {
+        video.muted = true;
+        videoObserver.observe(video);
+      });
+
+      function syncVisibleResearchVideos() {
+        researchVideos.forEach((video) => {
+          const parentPanel = video.closest('.tab-panel');
+          const isTabVisible = parentPanel && parentPanel.classList.contains('active');
+          if (!isTabVisible) {
+            video.pause();
+            return;
+          }
+          const rect = video.getBoundingClientRect();
+          const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+          const visibleHeight = Math.min(rect.bottom, viewHeight) - Math.max(rect.top, 0);
+          if (rect.height > 0 && visibleHeight / rect.height >= 0.45) {
+            video.muted = true;
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {});
+            }
+          } else {
+            video.pause();
+          }
+        });
+      }
 
       function activateTab(tabName, targetId) {
         if (!tabName) return;
@@ -1663,10 +1716,12 @@
           if (targetEl) {
             setTimeout(() => {
               targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setTimeout(syncVisibleResearchVideos, 350);
             }, 40);
           }
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(syncVisibleResearchVideos, 150);
         }
       }
 
