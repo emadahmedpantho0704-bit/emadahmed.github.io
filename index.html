@@ -248,7 +248,7 @@
        ===================================================================== */
     .sidebar {
       position: fixed;
-      top: 50%;
+      top: calc(50% + 24px);
       left: max(1.5rem, calc((100vw - 1180px) / 2 + 2rem));
       transform: translateY(-50%);
       width: 280px;
@@ -261,7 +261,6 @@
 
     .sidebar .name,
     .sidebar .subtitle,
-    .sidebar .role-highlight,
     .sidebar .affiliation {
       text-align: center;
     }
@@ -292,14 +291,6 @@
     .subtitle {
       font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .role-highlight {
-      color: var(--accent-blue);
-      font-weight: 500;
-      font-size: 0.95rem;
-      line-height: 1.4;
       margin-bottom: 1rem;
     }
 
@@ -784,7 +775,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.35rem;
-      align-items: start;
+      align-items: stretch;
     }
 
     .gallery-card {
@@ -794,6 +785,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       box-shadow: none;
       transition: transform 0.2s ease;
     }
@@ -804,7 +796,7 @@
 
     .gallery-card img {
       width: 100%;
-      height: auto;
+      height: 240px;
       border-radius: 10px;
       object-fit: cover;
       background: transparent;
@@ -927,10 +919,6 @@
       <img src="IMG_0111.jpg" alt="Emad Ahmed" class="profile-pic" />
       <h1 class="name">Emad Ahmed</h1>
       <div class="subtitle">Civil Engineering Academic &amp; Researcher</div>
-
-      <div class="role-highlight">
-        Structural Engineering &amp; Sustainable Concrete Researcher
-      </div>
 
       <div class="affiliation">
         Lecturer, Department of Civil Engineering<br>
@@ -1461,7 +1449,7 @@
           <article class="award-unified-card">
             <div>
               <div class="award-top-media-wrap">
-                <img src="XPLOSION STAGED PIC.jpg" alt="Case Study Competition" class="award-top-media" />
+                <img src="CIVIL XPLOSION.jpg" alt="Case Study Competition" class="award-top-media" />
               </div>
               <div class="award-kicker">Competition</div>
               <div class="award-card-title">1st Runner-up – Case Study Competition</div>
@@ -1472,7 +1460,7 @@
             </div>
             <div class="award-card-footer">
               <span class="award-meta-left">2023</span>
-              <a href="XPLOSION STAGED PIC.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Photo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="CIVIL XPLOSION.jpg" target="_blank" rel="noopener noreferrer" class="award-view-link">View Photo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
           </article>
 
@@ -1619,7 +1607,7 @@
           Gallery
         </h2>
         <p class="gallery-note">
-          Selected milestones, academic events, site visits, and research moments arranged in a 2-column grid with natural photo proportions and one caption per photo.
+          Selected milestones, academic events, site visits, and research moments arranged in a 2-column grid with fixed frame sizing and one caption per photo.
         </p>
 
         <div class="gallery-grid">
