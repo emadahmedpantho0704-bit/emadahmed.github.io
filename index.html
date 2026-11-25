@@ -11,11 +11,54 @@
       --bg-dark: #0d1624;
       --bg-nav: #0a111d;
       --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-dropdown: #0e1829;
+      --bg-media-shell: #070c14;
+      --bg-social: rgba(255, 255, 255, 0.05);
       --text-main: #e2e8f0;
+      --text-body: #cbd5e1;
+      --text-heading: #ffffff;
       --text-muted: #94a3b8;
       --accent-blue: #60a5fa;
+      --accent-hover: rgba(96, 165, 250, 0.12);
       --btn-blue: #7ab3ef;
+      --btn-blue-hover: #93c5fd;
+      --btn-text: #0a111d;
       --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-dropdown: rgba(255, 255, 255, 0.12);
+      --border-logo: rgba(255, 255, 255, 0.16);
+      --shadow-dropdown: 0 12px 28px rgba(0, 0, 0, 0.55);
+      --shadow-profile: 0 10px 25px rgba(0, 0, 0, 0.4);
+      --shadow-logo: 0 6px 16px rgba(0, 0, 0, 0.35);
+      --bg-pattern:
+        radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        repeating-radial-gradient(circle at 0% 100%, transparent 0, transparent 40px, rgba(255, 255, 255, 0.015) 41px, transparent 42px);
+    }
+
+    body.light-mode {
+      --bg-dark: #f4f7fb;
+      --bg-nav: #ffffff;
+      --bg-card: #ffffff;
+      --bg-dropdown: #ffffff;
+      --bg-media-shell: #e2e8f0;
+      --bg-social: #f1f5f9;
+      --text-main: #1e293b;
+      --text-body: #334155;
+      --text-heading: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #1d4ed8;
+      --accent-hover: rgba(29, 78, 216, 0.08);
+      --btn-blue: #2563eb;
+      --btn-blue-hover: #1d4ed8;
+      --btn-text: #ffffff;
+      --border-subtle: rgba(15, 23, 42, 0.12);
+      --border-dropdown: rgba(15, 23, 42, 0.14);
+      --border-logo: rgba(15, 23, 42, 0.14);
+      --shadow-dropdown: 0 12px 28px rgba(15, 23, 42, 0.12);
+      --shadow-profile: 0 10px 25px rgba(15, 23, 42, 0.12);
+      --shadow-logo: 0 4px 12px rgba(15, 23, 42, 0.08);
+      --bg-pattern:
+        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.06) 0%, transparent 45%),
+        repeating-radial-gradient(circle at 0% 100%, transparent 0, transparent 40px, rgba(15, 23, 42, 0.025) 41px, transparent 42px);
     }
 
     * {
@@ -34,9 +77,8 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.75;
       min-height: 100vh;
-      background-image:
-        radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
-        repeating-radial-gradient(circle at 0% 100%, transparent 0, transparent 40px, rgba(255, 255, 255, 0.015) 41px, transparent 42px);
+      background-image: var(--bg-pattern);
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     /* Top Navigation */
@@ -52,6 +94,7 @@
       z-index: 100;
       flex-wrap: wrap;
       gap: 1rem;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .brand {
@@ -59,7 +102,7 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      color: #fff;
+      color: var(--text-heading);
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
       font-weight: 600;
@@ -76,6 +119,13 @@
       font-size: 0.75rem;
       font-family: 'Inter', sans-serif;
       letter-spacing: 1px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
     }
 
     nav {
@@ -99,11 +149,40 @@
 
     nav > a:hover, nav > a.active,
     .nav-dropdown > a:hover, .nav-dropdown > a.active {
-      color: #fff;
+      color: var(--text-heading);
     }
 
     nav > a.active, .nav-dropdown > a.active {
       border-bottom: 2px solid var(--accent-blue);
+    }
+
+    /* Theme Toggle Button (Top Right) */
+    .theme-toggle-btn {
+      background: var(--bg-card);
+      color: var(--text-heading);
+      border: 1px solid var(--border-dropdown);
+      border-radius: 999px;
+      padding: 0.42rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle-btn i {
+      color: var(--accent-blue);
+      font-size: 0.88rem;
     }
 
     /* Hover Dropdown Menu */
@@ -123,11 +202,11 @@
     }
 
     .dropdown-inner {
-      background-color: #0e1829;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: var(--bg-dropdown);
+      border: 1px solid var(--border-dropdown);
       border-radius: 8px;
       padding: 0.45rem 0;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+      box-shadow: var(--shadow-dropdown);
     }
 
     .nav-dropdown:hover .dropdown-menu,
@@ -146,8 +225,8 @@
     }
 
     .dropdown-inner a:hover {
-      background-color: rgba(96, 165, 250, 0.12);
-      color: #fff;
+      background-color: var(--accent-hover);
+      color: var(--text-heading);
       padding-left: 1.2rem;
     }
 
@@ -174,16 +253,16 @@
       height: 170px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid rgba(255, 255, 255, 0.12);
+      border: 3px solid var(--border-dropdown);
       margin-bottom: 1.5rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-profile);
     }
 
     .name {
       font-family: 'Playfair Display', serif;
       font-size: 1.85rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-heading);
       line-height: 1.2;
       margin-bottom: 0.4rem;
     }
@@ -218,7 +297,7 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--bg-social);
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
       display: flex;
@@ -230,7 +309,7 @@
     }
 
     .social-icons a:hover {
-      color: #fff;
+      color: var(--text-heading);
       border-color: var(--accent-blue);
       transform: translateY(-2px);
     }
@@ -251,7 +330,7 @@
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.65rem;
-      color: #fff;
+      color: var(--text-heading);
       display: flex;
       align-items: center;
       gap: 12px;
@@ -268,13 +347,13 @@
     .subsection-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem;
-      color: #fff;
+      color: var(--text-heading);
       margin: 2rem 0 1rem;
       scroll-margin-top: 90px;
     }
 
     .bio-text p {
-      color: #cbd5e1;
+      color: var(--text-body);
       font-size: 1.02rem;
       margin-bottom: 1.3rem;
     }
@@ -300,11 +379,11 @@
 
     .btn-primary {
       background-color: var(--btn-blue);
-      color: #0a111d;
+      color: var(--btn-text);
     }
 
     .btn-primary:hover {
-      background-color: #93c5fd;
+      background-color: var(--btn-blue-hover);
     }
 
     /* Research Interests Grid on Home Tab */
@@ -319,11 +398,11 @@
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
       padding: 1.15rem 1.3rem;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background-color 0.25s ease;
     }
 
     .interest-card:hover {
-      border-color: rgba(96, 165, 250, 0.35);
+      border-color: var(--accent-blue);
     }
 
     .interest-header {
@@ -331,7 +410,7 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 0.45rem;
-      color: #fff;
+      color: var(--text-heading);
       font-weight: 600;
       font-size: 0.96rem;
     }
@@ -354,6 +433,7 @@
       border-radius: 8px;
       padding: 1.25rem 1.4rem;
       margin-bottom: 1.1rem;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .entry-card-logo {
@@ -368,13 +448,13 @@
       height: 56px;
       border-radius: 10px;
       background: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border: 1px solid var(--border-logo);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      box-shadow: var(--shadow-logo);
     }
 
     .inst-logo-box img {
@@ -410,7 +490,7 @@
 
     .entry-title {
       font-weight: 600;
-      color: #fff;
+      color: var(--text-heading);
       font-size: 1rem;
     }
 
@@ -427,7 +507,7 @@
     }
 
     .entry-details {
-      color: #cbd5e1;
+      color: var(--text-body);
       font-size: 0.93rem;
       padding-left: 1.1rem;
     }
@@ -473,7 +553,7 @@
       border-radius: 6px;
       border: 1px solid var(--border-subtle);
       display: block;
-      background: #070c14;
+      background: var(--bg-media-shell);
     }
 
     .cert-img-label {
@@ -484,7 +564,7 @@
 
     .skill-row {
       margin-bottom: 0.65rem;
-      color: #cbd5e1;
+      color: var(--text-body);
       font-size: 0.94rem;
     }
 
@@ -493,7 +573,7 @@
     }
 
     .skill-label {
-      color: #fff;
+      color: var(--text-heading);
       font-weight: 600;
     }
 
@@ -536,18 +616,18 @@
     }
 
     .video-pub-meta strong {
-      color: #fff;
+      color: var(--text-heading);
     }
 
     .video-pub-summary {
       font-size: 0.92rem;
-      color: #cbd5e1;
+      color: var(--text-body);
       margin-bottom: 0.6rem;
       line-height: 1.65;
     }
 
     .video-pub-bullets {
-      color: #cbd5e1;
+      color: var(--text-body);
       font-size: 0.89rem;
       padding-left: 1.1rem;
       margin-bottom: 0.7rem;
@@ -563,7 +643,7 @@
     }
 
     .video-pub-keywords strong {
-      color: #fff;
+      color: var(--text-heading);
     }
 
     .video-box {
@@ -577,7 +657,7 @@
       aspect-ratio: 16 / 10;
       border-radius: 6px;
       border: 1px solid var(--border-subtle);
-      background: #070c14;
+      background: var(--bg-media-shell);
       object-fit: cover;
       display: block;
     }
@@ -622,7 +702,7 @@
 
     .gallery-title {
       font-weight: 600;
-      color: #fff;
+      color: var(--text-heading);
       font-size: 0.92rem;
       margin-bottom: 0.2rem;
     }
@@ -666,44 +746,52 @@
       <div class="monogram">EA</div>
       <span>Emad Ahmed</span>
     </a>
-    <nav>
-      <a href="#home" class="tab-link active" data-tab="home">Home</a>
-      <a href="#education" class="tab-link" data-tab="education">Education</a>
 
-      <!-- Research & Publication with Hover Subheadings -->
-      <div class="nav-dropdown">
-        <a href="#research-publication" class="tab-link" data-tab="research-publication">
-          Research &amp; Publication <i class="fa-solid fa-chevron-down" style="font-size: 0.68rem;"></i>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-inner">
-            <a href="#masters-thesis" data-tab="research-publication" data-target="masters-thesis">Master's Thesis</a>
-            <a href="#undergraduate-thesis" data-tab="research-publication" data-target="undergraduate-thesis">Undergraduate Thesis (B.Sc.)</a>
-            <a href="#conference-papers" data-tab="research-publication" data-target="conference-papers">Conference Papers</a>
-            <a href="#poster-presentations" data-tab="research-publication" data-target="poster-presentations">Poster Presentations</a>
+    <div class="nav-group">
+      <nav>
+        <a href="#home" class="tab-link active" data-tab="home">Home</a>
+        <a href="#education" class="tab-link" data-tab="education">Education</a>
+
+        <!-- Research & Publication with Hover Subheadings -->
+        <div class="nav-dropdown">
+          <a href="#research-publication" class="tab-link" data-tab="research-publication">
+            Research &amp; Publication <i class="fa-solid fa-chevron-down" style="font-size: 0.68rem;"></i>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="#masters-thesis" data-tab="research-publication" data-target="masters-thesis">Master's Thesis</a>
+              <a href="#undergraduate-thesis" data-tab="research-publication" data-target="undergraduate-thesis">Undergraduate Thesis (B.Sc.)</a>
+              <a href="#conference-papers" data-tab="research-publication" data-target="conference-papers">Conference Papers</a>
+              <a href="#poster-presentations" data-tab="research-publication" data-target="poster-presentations">Poster Presentations</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Training & Experiences with Hover Subheadings -->
-      <div class="nav-dropdown">
-        <a href="#experience" class="tab-link" data-tab="experience">
-          Training &amp; Experiences <i class="fa-solid fa-chevron-down" style="font-size: 0.68rem;"></i>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-inner">
-            <a href="#professional-experiences" data-tab="experience" data-target="professional-experiences">Professional Experiences</a>
-            <a href="#training-section" data-tab="experience" data-target="training-section">Training</a>
-            <a href="#industrial-experiences" data-tab="experience" data-target="industrial-experiences">Industrial Experiences</a>
-            <a href="#technical-skills" data-tab="experience" data-target="technical-skills">Technical Skills</a>
+        <!-- Training & Experiences with Hover Subheadings -->
+        <div class="nav-dropdown">
+          <a href="#experience" class="tab-link" data-tab="experience">
+            Training &amp; Experiences <i class="fa-solid fa-chevron-down" style="font-size: 0.68rem;"></i>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="#professional-experiences" data-tab="experience" data-target="professional-experiences">Professional Experiences</a>
+              <a href="#training-section" data-tab="experience" data-target="training-section">Training</a>
+              <a href="#industrial-experiences" data-tab="experience" data-target="industrial-experiences">Industrial Experiences</a>
+              <a href="#technical-skills" data-tab="experience" data-target="technical-skills">Technical Skills</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <a href="#awards" class="tab-link" data-tab="awards">Awards &amp; Achievement</a>
-      <a href="#cocurricular" class="tab-link" data-tab="cocurricular">Co-curricular Activities</a>
-      <a href="#gallery" class="tab-link" data-tab="gallery">Gallery</a>
-    </nav>
+        <a href="#awards" class="tab-link" data-tab="awards">Awards &amp; Achievement</a>
+        <a href="#cocurricular" class="tab-link" data-tab="cocurricular">Co-curricular Activities</a>
+        <a href="#gallery" class="tab-link" data-tab="gallery">Gallery</a>
+      </nav>
+
+      <button type="button" id="themeToggleBtn" class="theme-toggle-btn" aria-label="Switch between dark and light mode" aria-pressed="false">
+        <i id="themeToggleIcon" class="fa-solid fa-sun"></i>
+        <span id="themeToggleText">Light Mode</span>
+      </button>
+    </div>
   </header>
 
   <!-- Main Two-Column Portfolio -->
@@ -1107,7 +1195,7 @@
 
         <div class="entry-card entry-card-logo">
           <div class="inst-logo-box">
-            <img src="ITN.png" alt="ITN Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="ITN.jpg" alt="ITN Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="inst-fallback" style="display:none;">ITN</div>
           </div>
           <div>
@@ -1454,10 +1542,63 @@
 
   <script>
     const STORAGE_KEY = 'emad_portfolio_state_v1';
+    const THEME_KEY = 'emad_portfolio_theme_v1';
     const tabLinks = document.querySelectorAll('[data-tab]');
     const tabPanels = document.querySelectorAll('.tab-panel');
     const navLinks = document.querySelectorAll('header nav > a.tab-link, header nav .nav-dropdown > a.tab-link');
     const allVideos = document.querySelectorAll('.video-media');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeToggleIcon = document.getElementById('themeToggleIcon');
+    const themeToggleText = document.getElementById('themeToggleText');
+
+    function applyTheme(theme) {
+      const isLight = theme === 'light';
+      document.body.classList.toggle('light-mode', isLight);
+      if (themeToggleBtn) {
+        themeToggleBtn.setAttribute('aria-pressed', String(isLight));
+      }
+      if (themeToggleIcon) {
+        themeToggleIcon.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+      }
+      if (themeToggleText) {
+        themeToggleText.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+      }
+    }
+
+    function getSavedTheme() {
+      try {
+        const sessionTheme = sessionStorage.getItem(THEME_KEY);
+        if (sessionTheme === 'light' || sessionTheme === 'dark') {
+          return sessionTheme;
+        }
+      } catch (err) {}
+      try {
+        const localTheme = localStorage.getItem(THEME_KEY);
+        if (localTheme === 'light' || localTheme === 'dark') {
+          return localTheme;
+        }
+      } catch (err) {}
+      return 'dark';
+    }
+
+    function saveTheme(theme) {
+      try {
+        sessionStorage.setItem(THEME_KEY, theme);
+      } catch (err) {}
+      try {
+        localStorage.setItem(THEME_KEY, theme);
+      } catch (err) {}
+    }
+
+    applyTheme(getSavedTheme());
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+        applyTheme(nextTheme);
+        saveTheme(nextTheme);
+      });
+    }
 
     const videoObserver = new IntersectionObserver(
       (entries) => {
